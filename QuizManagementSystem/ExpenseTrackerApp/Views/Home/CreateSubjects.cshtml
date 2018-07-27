@@ -91,7 +91,7 @@
 
             </div>
             <div class="form-group col-md-8">
-                <input data-message="Please Select Value" name="Category" data-bind="value:QType" class="form-control" id="eddlCategory">
+                <input data-message="Please Select Value" name="Category"  class="form-control" id="eddlCategory">
                 <span class="k-invalid-msg" data-for="eddlCategory"></span>
             </div>
 
@@ -104,7 +104,7 @@
 
             </div>
             <div class="form-group col-md-8">
-                <select id="eddlActive" style="width: 100%;" data-bind="value:isActive" name="Active Flag" required>
+                <select id="eddlActive" style="width: 100%;" data-bind="value:isActive='YES'?1:0" name="Active Flag" required>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
 
@@ -142,6 +142,12 @@
                         },
                     }
                 }).data("kendoMultiSelect");
+
+                function onRequestEdit(arg) {
+                    console.log(arg);
+                    var model = arg.model;
+                    
+                }
 
                 $("#SaveSubject").click(function () {
                     var validator = $("#addSubjectModal").kendoValidator().data("kendoValidator");
@@ -304,7 +310,11 @@
                         console.log(e);
                     },
                     edit: function (e) {
-                        
+                        console.log(e.model.QType);
+                        var str = e.model.QType;
+                        str = str.split(",");
+                        //var arr = arr.push();
+                        console.log(str);
                         $("#eddlCategory").kendoMultiSelect({
                             optionLabel: "Select Test Category",
                             filter: "startswith",
@@ -329,11 +339,26 @@
                                 },
                             }
                         }).data("kendoMultiSelect");
+                        $("#eddlCategory").data("kendoMultiSelect").value(str);
+
                         var updateBtn = e.container.find(".k-grid-update");
                         updateBtn.removeClass("k-grid-update"); //removing this class will prevent the grid from saving on click
                         updateBtn.click(function () {
-                            onRequestEdit(e); //call the function you wish
+                            var validator = $("#EditSubjectForm").kendoValidator().data("kendoValidator");
+                            if (validator.validate()) {
 
+
+                                var isActive = $('#eddlActive').val();
+                                var SubjectName = $('#etxtSbjName').val();
+                                var Category = $('#eddlCategory').data("kendoMultiSelect").value();
+                                Category = Category.toString();
+                                var model = {
+                                    SubjectName: SubjectName,
+                                    Category: Category,
+                                    isActive: isActive
+                                }
+                                onRequestEdit(model); //call the function you wish
+                            }
                         });
 
                     }

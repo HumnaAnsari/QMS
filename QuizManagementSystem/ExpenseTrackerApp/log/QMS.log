@@ -28,3 +28,6 @@
 2018-07-27 17:36:47,544 [21] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
 2018-07-27 17:36:47,549 [21] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
 2018-07-27 17:36:47,550 [21] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-07-27 18:32:00,117 [37] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-07-27 18:32:00,547 [37] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-07-27 18:32:00,549 [37] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController

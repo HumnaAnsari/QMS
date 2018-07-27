@@ -223,10 +223,7 @@ namespace ExpenseTrackerApp.Controllers
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
                     data = db.getSubjectsList().ToList();
-                    foreach (var d in data)
-                    {
-
-                    }
+                    
                 }
 
                 return Json(data, JsonRequestBehavior.AllowGet);
