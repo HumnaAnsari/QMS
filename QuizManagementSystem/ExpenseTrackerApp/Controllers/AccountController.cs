@@ -34,7 +34,11 @@ namespace ExpenseTrackerApp.Controllers
         {
             return View();
         }
-
+        [AllowAnonymous]
+        public ActionResult SignUp()
+        {
+            return View();
+        }
         [HttpPost, AllowAnonymous]
         public ActionResult Login(LoginViewModel model)
         {
@@ -57,7 +61,7 @@ namespace ExpenseTrackerApp.Controllers
                     using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                     {
                         tblUser user = new tblUser();
-                        user = (from usr in db.tblUsers where usr.UserName == model.Username.Trim() && usr.Password == model.Password.Trim() select usr).FirstOrDefault();
+                        user = (from usr in db.tblUsers where usr.UserName == model.Username.Trim() && usr.Password == model.Password.Trim() && usr.isActive==1 select usr).FirstOrDefault();
                         
                         if (user == null)
                         {

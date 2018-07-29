@@ -1,0 +1,97 @@
+﻿@using ExpenseTrackerApp.Models;
+@{
+
+    var profileData = Session["UserProfile"] as DAL.UserProfileSessionData;
+
+}
+
+
+<div class="container">
+    <input type="hidden" id="txtRoleId" value="@profileData.User_Role" />
+    <input type="hidden" id="txtUserId" value="@profileData.User_ID" />
+    <table id="gridReport"></table>
+</div>
+<script type="text/javascript">
+    var roleid = $("#txtRoleId").val();
+    var userid = $("#txtUserId").val();
+    var dataSource = new kendo.data.DataSource({
+        transport: {
+            data: JSON.stringify(roleid),
+            read: {
+                url: '@Url.Action("ViewReport", "Home")',
+                data: {
+                    roleid: roleid,
+                    userid: userid
+                },
+                dataType: "json" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            }
+        },
+        pageSize: 10
+    });
+
+
+    $("#gridReport").kendoGrid({
+        
+        dataSource: dataSource,
+      
+        scrollable: true,
+        sortable: true,
+        pageable: true,
+        autoBind: true,
+        resizable: true,
+        filterable: true,
+        columns: [
+
+
+        {
+            field: "AssignID",
+            width: 50
+
+        }, {
+            field: "userid",
+            hidden:true
+        }, {
+            field: "UserName",
+            title: "UserName",
+            width:100,
+
+        },
+        {
+            field: "ExpireDate",
+            title: "ExpireDate",
+            width: 50,
+
+        },
+        {
+            field: "Controller",
+            title: "Controller",
+            hidden: true,
+
+        },
+        {
+            field: "ControllerName",
+            title: "ControllerName",
+            width: 50,
+
+        },
+        {
+            field: "Status",
+            title: "Status",
+            width: 50,
+
+        },
+        
+        {
+            field: "Marks",
+            title: "Marks",
+            width: 50,
+
+    },
+            {
+                field: "TestCompleteDate",
+                title: "TestCompleteDate",
+                width: 50,
+
+            }]
+    });
+</script>

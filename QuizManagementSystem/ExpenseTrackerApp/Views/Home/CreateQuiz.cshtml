@@ -43,7 +43,7 @@
 
                         </div>
                         <div class="form-group col-md-8">
-                            <input type="text" id="txtNoOfQues" class="form-control" name="Total Questions" required>
+                            <input type="number" id="txtNoOfQues" class="form-control" name="Total Questions" required>
                             <span class="k-invalid-msg" data-for="txtNoOfQues"></span>
                         </div>
 
@@ -80,7 +80,7 @@
 
                         </div>
                         <div class="form-group col-md-8">
-                            <input type="text" id="txtTimeAllot" class="form-control" name="Time Allocated" placeholder="Enter Time in Minutes" required>
+                            <input type="number" id="txtTimeAllot" class="form-control" name="Time Allocated" placeholder="Enter Time in Minutes" required>
                             <span class="k-invalid-msg" data-for="txtTimeAllot"></span>
                         </div>
 
@@ -92,7 +92,7 @@
 
                         </div>
                         <div class="form-group col-md-8">
-                            <input type="text" id="txtPassingScore" class="form-control" name="Passing Score" required>
+                            <input type="number" id="txtPassingScore" class="form-control" name="Passing Score" required>
                             <span class="k-invalid-msg" data-for="txtPassingScore"></span>
                         </div>
 
@@ -493,7 +493,7 @@
             var model = arg.model;
             var validator = $("#EditQuizForm").kendoValidator().data("kendoValidator");
             if (validator.validate()) {
-
+                     
             }
         }
 
@@ -521,22 +521,22 @@
             }, {
                 field: "QuizName",
                 title: "QuizName",
-                width: 100
+                width: 80
             }, {
                 field: "TotalQuestions",
                 title: "TotalQuestions",
-                width: 100,
+                width: 80,
 
             }, {
                 field: "TimeAllocated",
                 title: "TimeAllocated",
-                width: 100,
+                width: 80,
 
             },
             {
                 field: "PassingScore",
                 title: "PassingScore",
-                width: 50
+                width: 80
 
             },
              //{
@@ -555,6 +555,11 @@
                   field: "Subjects",
                   title: "Subjects",
                   width: 50
+
+              },
+              {
+                  field: "SubjectIds",
+                 hidden:true,
 
               },
               {
@@ -603,7 +608,7 @@
                                             text: 'Record has been Deleted.',
                                             type: 'success'
                                         });
-                                        $("#datatable").data("kendoGrid").dataSource.read();
+                                        $("#quizGrid").data("kendoGrid").dataSource.read();
                                     }
                                 }
                             });

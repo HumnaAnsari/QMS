@@ -156,6 +156,7 @@
     <Property Name="SecurityQuestion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SecurityAnswer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="roleid" Type="Int32" Nullable="false" />
+    <Property Name="isActive" Type="Int32" />
   </EntityType>
   <EntityType Name="tblAdminDetail">
     <Key>
@@ -242,6 +243,17 @@
       <Parameter Name="Subjects" Mode="In" Type="String" />
       <Parameter Name="CatID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="addSignUpUser">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="SecretQuestion" Mode="In" Type="String" />
+      <Parameter Name="SecretAnswer" Mode="In" Type="String" />
+      <Parameter Name="Role" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="addSubject">
       <Parameter Name="SubjectName" Mode="In" Type="String" />
       <Parameter Name="Category" Mode="In" Type="String" />
@@ -279,6 +291,12 @@
     <FunctionImport Name="deleteUser">
       <Parameter Name="UserId" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="editSubject">
+      <Parameter Name="SubjectName" Mode="In" Type="String" />
+      <Parameter Name="Category" Mode="In" Type="String" />
+      <Parameter Name="ActiveF" Mode="In" Type="Int32" />
+      <Parameter Name="SubjectId" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="editUser">
       <Parameter Name="UserId" Mode="In" Type="Int32" />
       <Parameter Name="UserName" Mode="In" Type="String" />
@@ -312,6 +330,26 @@
     <FunctionImport Name="getSubjectsList" ReturnType="Collection(DBONLINETESTModel.getSubjectsList_Result)" />
     <FunctionImport Name="getTestCategories" ReturnType="Collection(DBONLINETESTModel.getTestCategories_Result)" />
     <FunctionImport Name="getUserDetails" ReturnType="Collection(DBONLINETESTModel.getUserDetails_Result)" />
+    <FunctionImport Name="viewReport" ReturnType="Collection(DBONLINETESTModel.viewReport_Result)">
+      <Parameter Name="roleid" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tblUserAnswers_Latest" EntityType="DBONLINETESTModel.tblUserAnswers_Latest" />
+    <FunctionImport Name="GetResults" ReturnType="Collection(DBONLINETESTModel.GetResults_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="QuizID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertAnswers">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="QuizID" Mode="In" Type="Int32" />
+      <Parameter Name="Question" Mode="In" Type="String" />
+      <Parameter Name="Answer" Mode="In" Type="String" />
+      <Parameter Name="isCorrect" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateMarks">
+      <Parameter Name="QuizID" Mode="In" Type="Int32" />
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="getAgentGridData_Result">
     <Property Type="Int32" Name="QuizID" Nullable="false" />
@@ -359,6 +397,7 @@
     <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="16" />
     <Property Type="String" Name="TestCatName" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Subjects" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubjectIds" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="GetQuizQuestions_Result">
     <Property Type="Int32" Name="QuizID" Nullable="false" />
@@ -389,6 +428,7 @@
     <Property Type="Int32" Name="SubjectId" Nullable="false" />
     <Property Type="String" Name="SubjectName" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="QType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CatTypeName" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="isActive" Nullable="false" MaxLength="3" />
   </ComplexType>
   <ComplexType Name="getTestCategories_Result">
@@ -406,5 +446,36 @@
     <Property Type="String" Name="SecurityQuestion" Nullable="false" />
     <Property Type="String" Name="SecurityAnswer" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="viewReport_Result">
+    <Property Type="Int32" Name="AssignID" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ExpireDate" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="Controller" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ControllerName" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Marks" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="String" Name="TestCompleteDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <EntityType Name="tblUserAnswers_Latest">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="QuizID" Type="Int32" />
+    <Property Name="Question" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Answer" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="isCorrect" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="GetResults_Result">
+    <Property Type="String" Name="QuizName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Marks" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="DateTime" Name="CompleteDate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="QuestionCount" Nullable="true" />
+    <Property Type="Int32" Name="CorrectAnswers" Nullable="true" />
+    <Property Type="Int32" Name="WrongAnswers" Nullable="true" />
   </ComplexType>
 </Schema>

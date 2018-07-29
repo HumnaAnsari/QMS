@@ -21,5 +21,6 @@ namespace ExpenseTrackerApp.Models
         public Nullable<System.DateTime> CreateDate { get; set; }
         public string TestCatName { get; set; }
         public string Subjects { get; set; }
+        public string SubjectIds { get; set; }
     }
 }

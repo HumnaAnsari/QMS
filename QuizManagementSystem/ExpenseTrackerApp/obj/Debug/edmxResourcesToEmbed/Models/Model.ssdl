@@ -140,6 +140,19 @@ warning 6002: The table/view 'DBONLINETEST.dbo.tblSecretQuestions' does not have
     <Property Name="EnteredAnswer" Type="varchar" MaxLength="350" />
     <Property Name="AssignID" Type="int" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBONLINETEST.dbo.tblUserAnswers_Latest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblUserAnswers_Latest">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="QuizID" Type="int" />
+    <Property Name="Question" Type="varchar" MaxLength="250" />
+    <Property Name="Answer" Type="varchar" MaxLength="250" />
+    <Property Name="isCorrect" Type="int" />
+  </EntityType>
   <EntityType Name="tblUserDetails">
     <Key>
       <PropertyRef Name="UserId" />
@@ -194,6 +207,7 @@ warning 6002: The table/view 'DBONLINETEST.dbo.tblUserRoles' does not have a pri
     <Property Name="SecurityQuestion" Type="varchar(max)" Nullable="false" />
     <Property Name="SecurityAnswer" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="roleid" Type="int" Nullable="false" />
+    <Property Name="isActive" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6013: The table/view 'DBONLINETEST.dbo.TestSettingCategories' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -246,6 +260,17 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     <Parameter Name="Subjects" Type="varchar(max)" Mode="In" />
     <Parameter Name="CatID" Type="int" Mode="In" />
   </Function>
+  <Function Name="addSignUpUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="PhoneNumber" Type="varchar" Mode="In" />
+    <Parameter Name="SecretQuestion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="SecretAnswer" Type="varchar" Mode="In" />
+    <Parameter Name="Role" Type="int" Mode="In" />
+  </Function>
   <Function Name="addSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="SubjectName" Type="varchar" Mode="In" />
     <Parameter Name="Category" Type="varchar(max)" Mode="In" />
@@ -286,6 +311,12 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="deleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
   </Function>
+  <Function Name="editSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SubjectName" Type="varchar" Mode="In" />
+    <Parameter Name="Category" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ActiveF" Type="int" Mode="In" />
+    <Parameter Name="SubjectId" Type="int" Mode="In" />
+  </Function>
   <Function Name="editUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
     <Parameter Name="UserName" Type="varchar" Mode="In" />
@@ -308,6 +339,9 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="getCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
     <Parameter Name="QuizId" Type="int" Mode="In" />
   </Function>
+  <Function Name="getCategoryNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="subjectId" Type="int" Mode="In" />
+  </Function>
   <Function Name="getQuestionList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetQuizData_Agent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
@@ -315,6 +349,13 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="getQuizList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetQuizQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="QuizID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getQuizSubjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="QuizId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetResults" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
     <Parameter Name="QuizID" Type="int" Mode="In" />
   </Function>
   <Function Name="getRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -325,6 +366,21 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="getSubjectsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="getTestCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="getUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="InsertAnswers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="QuizID" Type="int" Mode="In" />
+    <Parameter Name="Question" Type="varchar" Mode="In" />
+    <Parameter Name="Answer" Type="varchar" Mode="In" />
+    <Parameter Name="isCorrect" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdateMarks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QuizID" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="viewReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="DBONLINETESTModelStoreContainer">
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblAssignExam_ToAgent" EntityType="Self.tblAssignExam_ToAgent" Schema="dbo" store:Type="Tables" />
@@ -357,6 +413,16 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     [tblSecretQuestions].[SQuesID] AS [SQuesID], 
     [tblSecretQuestions].[SQues] AS [SQues]
     FROM [dbo].[tblSecretQuestions] AS [tblSecretQuestions]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblUserAnswers_Latest" EntityType="Self.tblUserAnswers_Latest" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblUserAnswers_Latest].[id] AS [id], 
+    [tblUserAnswers_Latest].[UserId] AS [UserId], 
+    [tblUserAnswers_Latest].[QuizID] AS [QuizID], 
+    [tblUserAnswers_Latest].[Question] AS [Question], 
+    [tblUserAnswers_Latest].[Answer] AS [Answer], 
+    [tblUserAnswers_Latest].[isCorrect] AS [isCorrect]
+    FROM [dbo].[tblUserAnswers_Latest] AS [tblUserAnswers_Latest]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="tblUserRoles" EntityType="Self.tblUserRoles" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

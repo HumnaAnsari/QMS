@@ -22,7 +22,10 @@ namespace ExpenseTrackerApp.Controllers
         {
             return View();
         }
-
+        public ActionResult Report()
+        {
+            return View();
+        }
         public ActionResult CreateQuestions()
         {
             return View();
@@ -55,6 +58,23 @@ namespace ExpenseTrackerApp.Controllers
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
                     var result = db.addUser(model.UserName, model.FirstName, model.LastName, model.Password, model.Email, model.PhoneNumber, model.SecretQuestion,model.SecretAnswer, model.Role);
+                    return Json(result, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
+        }
+
+        public ActionResult AddSignUpUser(AddUserModel model)
+        {
+            try
+            {
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    var result = db.addSignUpUser(model.UserName, model.FirstName, model.LastName, model.Password, model.Email, model.PhoneNumber, model.SecretQuestion, model.SecretAnswer, model.Role);
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -236,6 +256,7 @@ namespace ExpenseTrackerApp.Controllers
             return null;
 
         }
+
         public ActionResult AddSubject(AddSubjectModel model)
         {
             try
@@ -243,6 +264,24 @@ namespace ExpenseTrackerApp.Controllers
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
                     var result = db.addSubject(model.SubjectName,model.Category,model.ActiveF);
+                    return Json(result, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
+        }
+
+
+        public ActionResult EditSubject(AddSubjectModel model)
+        {
+            try
+            {
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    var result = db.editSubject(model.SubjectName, model.Category, model.ActiveF,model.SubjectId);
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -374,7 +413,26 @@ namespace ExpenseTrackerApp.Controllers
             return null;
 
         }
+        public ActionResult ViewReport(int roleid, int userid)
+        {
+            try
+            {
+                List<viewReport_Result> list = new List<viewReport_Result>();
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    list = db.viewReport(roleid,userid).ToList();
+                }
 
+                return Json(list, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                // logger.Error(ex);
+            }
+
+            return null;
+
+        }
 
         public ActionResult DeleteSubject(int SId)
         {
@@ -472,18 +530,72 @@ namespace ExpenseTrackerApp.Controllers
             return null;
 
         }
+        public ActionResult Result(int QuizID)
+        {
+            try
+            {
+                var profileData = Session["UserProfile"] as UserProfileSessionData;
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    List<GetResults_Result> data = db.GetResults(profileData.User_ID, QuizID).ToList();
+                    ViewBag.Status = data.FirstOrDefault().Status.ToString();
+                    ViewBag.Marks = data.FirstOrDefault().Marks.ToString();
+                    ViewBag.CompleteDate = data.FirstOrDefault().CompleteDate.ToString();
+                    ViewBag.QuestionCount = data.FirstOrDefault().QuestionCount.ToString();
+                    ViewBag.CorrectAnswer = data.FirstOrDefault().CorrectAnswers.ToString();
+                    ViewBag.WrongAnswer = data.FirstOrDefault().WrongAnswers.ToString();
+                    ViewBag.QuizName = data.FirstOrDefault().QuizName.ToString();
+                }
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        [HttpPost]
+        public ActionResult SaveAnswers(List<result_obj> result_obj)
+        {
+            try
+            {
+                var profileData = Session["UserProfile"] as UserProfileSessionData;
+                int result = 0;
+                foreach (var item in result_obj)
+                {
+                    using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                    {
+                        result = db.InsertAnswers(profileData.User_ID, item.quizid, item.questionnumber, item.answer, item.isCorrect);
+                    }
+                }
+                if (result == 1)
+                {
+                    using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                    {
+                        result = db.UpdateMarks(result_obj.FirstOrDefault().quizid, profileData.User_ID);
+                    }
+                }
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
         public ActionResult GetQuizQuestions(int UserId, int QuizID, int TimeAllocated)
         {
             var obj = this.DeserializeObject<QuizModel>("QuizModel");
             ViewBag.TimeAllocated = TimeAllocated.ToString();
             try
-            { 
+            {
                 List<GetQuizQuestions_Result> data = new List<GetQuizQuestions_Result>();
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
                     data = db.GetQuizQuestions(UserId, QuizID).ToList();
                 }
-               
+
                 List<QuestionsModel> list = new List<QuestionsModel>();
                 for (int i = 0; i < data.Count(); i++)
                 {
@@ -500,8 +612,8 @@ namespace ExpenseTrackerApp.Controllers
                     ques.SubjectName = data[i].SubjectName.ToString();
                     list.Add(ques);
                 }
-               
-                return View("Quiz",list);
+
+                return View("Quiz", list);
             }
             catch (Exception ex)
             {
@@ -515,7 +627,7 @@ namespace ExpenseTrackerApp.Controllers
         //{
         //    try
         //    {
-               
+
 
         //    }
         //    catch (Exception ex)
@@ -526,6 +638,7 @@ namespace ExpenseTrackerApp.Controllers
         //    return null;
         //}
         /*Sharoz New Work*/
+
 
     }
 }

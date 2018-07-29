@@ -17,6 +17,14 @@ namespace ExpenseTrackerApp.Models
             public int RoleId { get; set; }
         
         }
+        public class result_obj
+        {
+            public string questionnumber { get; set; }
+            public string answer { get; set; }
+            public int isCorrect { get; set; }
+            public int quizid { get; set; }
+
+        }
         public class AddUserModel
         {
             public int UserId { get; set; }
@@ -55,12 +63,13 @@ namespace ExpenseTrackerApp.Models
             public string Answer { get; set; }
 
         }
+
         public class AddSubjectModel
         {
             public string SubjectName { get; set; }
             public int ActiveF { get; set; }
             public string Category { get; set; }
-           
+            public int SubjectId { get; set; }
         }
 
         public class AssignQuizModel
@@ -71,13 +80,7 @@ namespace ExpenseTrackerApp.Models
             public string Agents { get; set; }
 
         }
-
-        public class Expense
-        {
-            public int Amount{ get; set; }
-            public string Comment { get; set; }
-            public int ExpenseDataType { get; set; }
-        }
+        
         public class UserProfileSessionData
         {
             public int User_ID { get; set; }

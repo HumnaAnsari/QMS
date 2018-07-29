@@ -226,6 +226,9 @@
     <Compile Include="Models\GetQuizQuestions_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetResults_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\getRoles_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -299,6 +302,9 @@
     <Compile Include="Models\tblUserAnswer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblUserAnswers_Latest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblUserDetail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -309,6 +315,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUserRole.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\viewReport_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1185,7 +1194,7 @@
     <Content Include="Views\Shared\_TwoColumnLayout.cshtml" />
     <Content Include="Views\Account\AccessDenied.cshtml" />
     <Content Include="Views\Account\Error.cshtml" />
-    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Report.cshtml" />
     <Content Include="Views\Home\ViewQuiz.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
@@ -1196,6 +1205,8 @@
     <Content Include="Views\Home\Quiz.cshtml" />
     <Content Include="Views\Home\CreateQuestions.cshtml" />
     <Content Include="Views\Home\CreateSubjects.cshtml" />
+    <Content Include="Views\Account\SignUp.cshtml" />
+    <Content Include="Views\Home\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

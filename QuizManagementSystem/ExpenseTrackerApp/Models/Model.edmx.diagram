@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3964f82660f84f70a2d874daaf0d679c" Name="Diagram1">
+      <Diagram DiagramId="7a13f4e786f744caae31060f3dfa6bb1" Name="Diagram1">
         <EntityTypeShape EntityType="DBONLINETESTModel.Employee" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBONLINETESTModel.tblAssignExam_ToAgent" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBONLINETESTModel.tblQuestion" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
@@ -24,6 +24,7 @@
         <EntityTypeShape EntityType="DBONLINETESTModel.tblSecretQuestion" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBONLINETESTModel.tblUserRole" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="DBONLINETESTModel.FK__tblQuiz__CatID__503BEA1C" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBONLINETESTModel.tblUserAnswers_Latest" Width="1.5" PointX="11.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

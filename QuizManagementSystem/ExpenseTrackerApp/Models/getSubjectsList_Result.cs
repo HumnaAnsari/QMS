@@ -16,6 +16,7 @@ namespace ExpenseTrackerApp.Models
         public int SubjectId { get; set; }
         public string SubjectName { get; set; }
         public string QType { get; set; }
+        public string CatTypeName { get; set; }
         public string isActive { get; set; }
     }
 }

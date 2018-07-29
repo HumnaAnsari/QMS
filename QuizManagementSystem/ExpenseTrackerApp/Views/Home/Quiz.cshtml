@@ -6,7 +6,6 @@
 
 
 }
-
 <div class="row">
     <div class="page-title">
         <div class="pull-left ">
@@ -27,70 +26,255 @@
             </li>
         </ul>
         <!-- /.control-group -->
-
     </div>
 </div>
+<div class="clearfix"></div>
 <div id="FSecureSalesForm" class="fixed-panel-container">
-    <div class="panel panel-default salesPanel">
+    @foreach (var item in Model.Take(1))
+    {
+        <div class="panel panel-default salesPanel" id="@item.Question.Replace("?", "").Replace(" " ,"")">
+            @if (item.ChoiceType == "Single")
+            {
+                <div class="panel-heading">
+                    Multiple Choice Questions
+                </div>
+
+                <div class="panel-body">
+
+                    <fieldset class="row">
 
 
-        <div class="panel-heading">
-            Multiple Choice Questions
-        </div>
+                        <div class="form-group col-md-3">
+                            <label for="QuestionNumber" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="A"> @item.Option1<br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="B"> @item.Option2<br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="C"> @item.Option3<br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="D"> @item.Option4<br>
+                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                        </div>
 
-        <div class="panel-body">
+                    </fieldset>
+                </div>
+            }
+            @if (item.ChoiceType == "Multiple")
+            {
+                <div class="panel-heading">
+                    Multiple Answer Questions
+                </div>
+
+                <div class="panel-body">
+
+                    <fieldset class="row">
 
 
-            <fieldset class="row">
-                @foreach (var item in Model)
-                {
-                    if(item.ChoiceType== "Single")
-                    { 
-                    <div class="form-group col-md-3">
-                        <label for="QuestionNumber" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
-                        <input type="radio" value="@item.Option1"> @item.Option1<br>
-                        <input type="radio" value="@item.Option1"> @item.Option2<br>
-                        <input type="radio" value="@item.Option1"> @item.Option3<br>
-                        <input type="radio" value="@item.Option1"> @item.Option4<br>
+                        <div class="form-group col-md-3">
+                            <label for="QuestionNumber" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
+                            <input type="checkbox" value="A"> @item.Option1<br>
+                            <input type="checkbox" value="B"> @item.Option2<br>
+                            <input type="checkbox" value="C"> @item.Option3<br>
+                            <input type="checkbox" value="D"> @item.Option4<br>
+                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                        </div>
+
+                    </fieldset>
+                </div>
+            }
+            @if (item.ChoiceType == "True/False")
+            {
+                <div class="panel-heading">
+                    True False Questions
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+
+                        <div class="form-group col-md-2">
+                            <label for="customername" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="A">@item.Option1<br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="B">@item.Option2<br>
+                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                        </div>
+
                     </div>
-                    }
-                }
+                </div>
+            }
 
-            </fieldset>
 
-        </div>
 
-        <div class="panel-heading">
-            True False Questions
-        </div>
-
-        <div class="panel-body">
-            <div class="row">
-                @foreach (var item in Model)
-                {
-                    if(item.ChoiceType== "True/False")
-                    { 
-                    <div class="form-group col-md-2">
-                        <label for="customername" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
-                        <input type="checkbox"  value="@item.Option1">@item.Option1<br>
-                        <input type="checkbox" value="@item.Option2">@item.Option2<br>
-                    </div>
-                    }
-                }
+            <div class="panel-footer text-right">
+                <button type="submit" class="btn btn-primary" id="add" onclick="GoNext('@item.Question.Replace("?", "").Replace(" " ,"")');"><i class="material-icons md-20 margin-right-none"></i>Next</button>
+                <button style="display:none;" type="submit" class="btn btn-default" onclick="Clear();">Clear</button>
             </div>
         </div>
+    }
+    @foreach (var item in Model.Skip(1))
+    {
+        <div class="panel panel-default salesPanel" id="@item.Question.Replace("?", "").Replace(" " ,"")" style="display:none;">
+            @if (item.ChoiceType == "Single")
+            {
+                <div class="panel-heading">
+                    Multiple Choice Questions
+                </div>
+
+                <div class="panel-body">
+
+                    <fieldset class="row">
+
+
+                        <div class="form-group col-md-3">
+                            <label for="QuestionNumber" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="A"> @item.Option1<br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="B"> @item.Option2<br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="C"> @item.Option3<br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="D"> @item.Option4<br>
+                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                        </div>
+
+                    </fieldset>
+                </div>
+            }
+            @if (item.ChoiceType == "Multiple")
+            {
+                <div class="panel-heading">
+                    Multiple Answer Questions
+                </div>
+
+                <div class="panel-body">
+
+                    <fieldset class="row">
+
+
+                        <div class="form-group col-md-3">
+                            <label for="QuestionNumber" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
+                            <input type="checkbox" value="A"> @item.Option1<br>
+                            <input type="checkbox" value="B"> @item.Option2<br>
+                            <input type="checkbox" value="C"> @item.Option3<br>
+                            <input type="checkbox" value="D"> @item.Option4<br>
+                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                        </div>
+
+                    </fieldset>
+                </div>
+            }
+            @if (item.ChoiceType == "True/False")
+            {
+                <div class="panel-heading">
+                    True False Questions
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+
+                        <div class="form-group col-md-2">
+                            <label for="customername" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="A">@item.Option1<br>
+                            <input type="radio" name="@item.Question.Replace("?", "")" value="B">@item.Option2<br>
+                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                        </div>
+
+                    </div>
+                </div>
+            }
 
 
 
-
-        <div class="panel-footer text-right">
-            <button type="submit" class="btn btn-primary" id="add"><i class="material-icons md-20 margin-right-none"></i>Submit</button>
-            <button type="submit" class="btn btn-default" onclick="Clear();">Clear</button>
+            <div class="panel-footer text-right">
+                <button type="submit" class="btn btn-primary next" onclick="GoNext('@item.Question.Replace("?", "").Replace(" " ,"")');"><i class="material-icons md-20 margin-right-none"></i>Next</button>
+                <button type="submit" style="display:none;" class="btn btn-primary submit" onclick="Submit('@item.Question.Replace("?", "").Replace(" " ,"")');"><i class="material-icons md-20 margin-right-none"></i>Submit</button>
+                <button type="submit" style="display : none;" class="btn btn-default" onclick="Clear();">Clear</button>
+            </div>
         </div>
-    </div>
+    }
 </div>
 
 <script>
+    function GoNext(id)
+    {
+        var error=0;
+        var qtype=$('#'+id).find('.panel-heading').text().trim();
+
+        if($('#' +id).find('input').is(":checked"))
+        {
+            @{List<string> ls = new List<string>();}
+            @foreach (var item in Model)
+        {
+            ls.Add(@item.Question.Replace("?", "").Replace(" ", ""));
+        }
+            var arr = JSON.parse('@Html.Raw(Json.Encode(ls))')
+            var currentvalue=id;
+            var next = arr[($.inArray(currentvalue, arr) + 1) % arr.length];
+            var lastEl = arr[arr.length-1];
+            $('#' + currentvalue).hide();
+            $('#' + next).show();
+            if(next==lastEl)
+            {
+                $('#' + next).find('.next').hide();
+                $('#' + next).find('.submit').show();
+            }
+        }
+        else{
+            alert('please select answer first');
+        }
+    }
+    function Submit(id)
+    {
+        var quizid = '@Model.FirstOrDefault().QuizID';
+        if($('#' +id).find('input').is(":checked"))
+        {
+            var result_obj= [];
+
+            $('#FSecureSalesForm').find('.salesPanel').each(function( index ) {
+                if($(this).find('.panel-heading').text().trim()=='Multiple Choice Questions' || $(this).find('.panel-heading').text().trim()=='True False Questions')
+                {
+                    var correctanswer =  $(this).find('input[type=hidden]').val()
+                    // var result = {};
+                    var questionnumber= $(this).find('label').text();
+                    var answer = $(this).find("input:checked").val();
+                    var isCorrect=0;
+                    if(answer == correctanswer)
+                    {isCorrect=1;}
+                    else{isCorrect=0;}
+                    result_obj.push({questionnumber : questionnumber , answer : answer , isCorrect: isCorrect, quizid : quizid});
+
+                }
+                if($(this).find('.panel-heading').text().trim()=='Multiple Answer Questions')
+                {
+                    var selected = [];
+                    $(this).find('input:checked').each(function() {
+                        selected.push($(this).val());
+                    });
+                    var correctanswer =  $(this).find('input[type=hidden]').val()
+                    var questionnumber= $(this).find('label').text();
+                    var  answer = selected.join(", ");
+                    var isCorrect = 0;
+                    if(answer == correctanswer)
+                    {isCorrect=1;}
+                    else{isCorrect=0;}
+                    result_obj.push({questionnumber : questionnumber , answer : answer , isCorrect: isCorrect , quizid : quizid});
+
+                }
+
+            });
+            result_obj=JSON.stringify(result_obj);
+
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: '/Home/SaveAnswers',
+                data: result_obj,
+                success: function (data) {
+                    alert(data);
+                    callbackfunction();
+                },
+                failure: function (response) {
+                    alert('failed');
+                }
+            });
+        }
+        else
+        {
+            alert('please select answer first');
+        }
+    }
     // Set the date we're counting down to
     var countDownDate = new Date("Jul 22, 2018 15:10:25").getTime();
     var timeallocated = @ViewBag.TimeAllocated.ToString();
@@ -122,6 +306,14 @@
         if (distance < 0) {
             clearInterval(x);
             document.getElementById("demo").innerHTML = "TIME OUT";
+            alert('Time out - Please retry');
+            window.location.reload();
         }
     }, 1000);
+    function callbackfunction()
+    {
+        var url = '@Url.Action("Result","Home")'
+        window.location.href = url + "?QuizID=" + @Model.FirstOrDefault().QuizID ;
+
+    }
 </script>
