@@ -32,7 +32,7 @@
 <div id="FSecureSalesForm" class="fixed-panel-container">
     @foreach (var item in Model.Take(1))
     {
-        <div class="panel panel-default salesPanel" id="@item.Question.Replace("?", "").Replace(" " ,"")">
+        <div class="panel panel-default salesPanel" id="@item.QuestionID">
             @if (item.ChoiceType == "Single")
             {
                 <div class="panel-heading">
@@ -40,19 +40,17 @@
                 </div>
 
                 <div class="panel-body">
-
                     <fieldset class="row">
 
-
                         <div class="form-group col-md-3">
-                            <label for="QuestionNumber" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="A"> @item.Option1<br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="B"> @item.Option2<br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="C"> @item.Option3<br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="D"> @item.Option4<br>
-                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                            <label for="QuestionNumber" class="control-label"><b>@item.Question</b></label><br>
+                            <input type="radio" name="@item.QuestionID" value="A"> @item.Option1<br>
+                            <input type="radio" name="@item.QuestionID" value="B"> @item.Option2<br>
+                            <input type="radio" name="@item.QuestionID" value="C"> @item.Option3<br>
+                            <input type="radio" name="@item.QuestionID" value="D"> @item.Option4<br>
+                            <input type="hidden" class="answer" value="@item.Answer" />
+                            <input type="hidden" class="questionid" value="@item.QuestionID" />
                         </div>
-
                     </fieldset>
                 </div>
             }
@@ -63,19 +61,17 @@
                 </div>
 
                 <div class="panel-body">
-
                     <fieldset class="row">
 
-
                         <div class="form-group col-md-3">
-                            <label for="QuestionNumber" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
+                            <label for="QuestionNumber" class="control-label"><b>@item.Question</b></label><br>
                             <input type="checkbox" value="A"> @item.Option1<br>
                             <input type="checkbox" value="B"> @item.Option2<br>
                             <input type="checkbox" value="C"> @item.Option3<br>
                             <input type="checkbox" value="D"> @item.Option4<br>
-                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                            <input type="hidden" class="answer" value="@item.Answer" />
+                            <input type="hidden" class="questionid" value="@item.QuestionID" />
                         </div>
-
                     </fieldset>
                 </div>
             }
@@ -86,29 +82,26 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-
                         <div class="form-group col-md-2">
-                            <label for="customername" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="A">@item.Option1<br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="B">@item.Option2<br>
-                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                            <label for="customername" class="control-label"><b>@item.Question</b></label><br>
+                            <input type="radio" name="@item.QuestionID" value="A">@item.Option1<br>
+                            <input type="radio" name="@item.QuestionID" value="B">@item.Option2<br>
+                            <input type="hidden" class="answer" value="@item.Answer" />
+                            <input type="hidden" class="questionid" value="@item.QuestionID" />
                         </div>
-
                     </div>
                 </div>
             }
 
-
-
             <div class="panel-footer text-right">
-                <button type="submit" class="btn btn-primary" id="add" onclick="GoNext('@item.Question.Replace("?", "").Replace(" " ,"")');"><i class="material-icons md-20 margin-right-none"></i>Next</button>
+                <button type="submit" class="btn btn-primary" id="add" onclick="GoNext('@item.QuestionID');"><i class="material-icons md-20 margin-right-none"></i>Next</button>
                 <button style="display:none;" type="submit" class="btn btn-default" onclick="Clear();">Clear</button>
             </div>
         </div>
     }
     @foreach (var item in Model.Skip(1))
     {
-        <div class="panel panel-default salesPanel" id="@item.Question.Replace("?", "").Replace(" " ,"")" style="display:none;">
+        <div class="panel panel-default salesPanel" id="@item.QuestionID" style="display:none;">
             @if (item.ChoiceType == "Single")
             {
                 <div class="panel-heading">
@@ -116,19 +109,17 @@
                 </div>
 
                 <div class="panel-body">
-
                     <fieldset class="row">
 
-
                         <div class="form-group col-md-3">
-                            <label for="QuestionNumber" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="A"> @item.Option1<br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="B"> @item.Option2<br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="C"> @item.Option3<br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="D"> @item.Option4<br>
-                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                            <label for="QuestionNumber" class="control-label"><b>@item.Question</b></label><br>
+                            <input type="radio" name="@item.QuestionID" value="A"> @item.Option1<br>
+                            <input type="radio" name="@item.QuestionID" value="B"> @item.Option2<br>
+                            <input type="radio" name="@item.QuestionID" value="C"> @item.Option3<br>
+                            <input type="radio" name="@item.QuestionID" value="D"> @item.Option4<br>
+                            <input type="hidden" class="answer" value="@item.Answer" />
+                            <input type="hidden" class="questionid" value="@item.QuestionID" />
                         </div>
-
                     </fieldset>
                 </div>
             }
@@ -139,19 +130,17 @@
                 </div>
 
                 <div class="panel-body">
-
                     <fieldset class="row">
 
-
                         <div class="form-group col-md-3">
-                            <label for="QuestionNumber" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
+                            <label for="QuestionNumber" class="control-label"><b>@item.Question</b></label><br>
                             <input type="checkbox" value="A"> @item.Option1<br>
                             <input type="checkbox" value="B"> @item.Option2<br>
                             <input type="checkbox" value="C"> @item.Option3<br>
                             <input type="checkbox" value="D"> @item.Option4<br>
-                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                            <input type="hidden" class="answer" value="@item.Answer" />
+                            <input type="hidden" class="questionid" value="@item.QuestionID" />
                         </div>
-
                     </fieldset>
                 </div>
             }
@@ -162,52 +151,48 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-
                         <div class="form-group col-md-2">
-                            <label for="customername" class="control-label"><b>@item.Question.Replace("?", "")</b></label><br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="A">@item.Option1<br>
-                            <input type="radio" name="@item.Question.Replace("?", "")" value="B">@item.Option2<br>
-                            <input type="hidden" id="@item.Question.Replace("?","").Replace(" " , "")" value="@item.Answer" />
+                            <label for="customername" class="control-label"><b>@item.Question</b></label><br>
+                            <input type="radio" name="@item.QuestionID" value="A">@item.Option1<br>
+                            <input type="radio" name="@item.QuestionID" value="B">@item.Option2<br>
+                            <input type="hidden" class="answer" value="@item.Answer" />
+                            <input type="hidden" class="questionid" value="@item.QuestionID" />
                         </div>
-
                     </div>
                 </div>
             }
 
-
-
             <div class="panel-footer text-right">
-                <button type="submit" class="btn btn-primary next" onclick="GoNext('@item.Question.Replace("?", "").Replace(" " ,"")');"><i class="material-icons md-20 margin-right-none"></i>Next</button>
-                <button type="submit" style="display:none;" class="btn btn-primary submit" onclick="Submit('@item.Question.Replace("?", "").Replace(" " ,"")');"><i class="material-icons md-20 margin-right-none"></i>Submit</button>
+                <button type="submit" class="btn btn-primary next" onclick="GoNext('@item.QuestionID');"><i class="material-icons md-20 margin-right-none"></i>Next</button>
+                <button type="submit" style="display:none;" class="btn btn-primary submit" onclick="Submit('@item.QuestionID');"><i class="material-icons md-20 margin-right-none"></i>Submit</button>
                 <button type="submit" style="display : none;" class="btn btn-default" onclick="Clear();">Clear</button>
             </div>
         </div>
     }
 </div>
-
 <script>
     function GoNext(id)
     {
         var error=0;
         var qtype=$('#'+id).find('.panel-heading').text().trim();
 
-        if($('#' +id).find('input').is(":checked"))
+        if($('#' +id.toString()).find('input').is(":checked"))
         {
-            @{List<string> ls = new List<string>();}
+            @{List<int> ls = new List<int>();}
             @foreach (var item in Model)
         {
-            ls.Add(@item.Question.Replace("?", "").Replace(" ", ""));
+            ls.Add(@item.QuestionID);
         }
             var arr = JSON.parse('@Html.Raw(Json.Encode(ls))')
-            var currentvalue=id;
+            var currentvalue=parseInt(id);
             var next = arr[($.inArray(currentvalue, arr) + 1) % arr.length];
             var lastEl = arr[arr.length-1];
-            $('#' + currentvalue).hide();
-            $('#' + next).show();
+            $('#' + currentvalue.toString()).hide();
+            $('#' + next.toString()).show();
             if(next==lastEl)
             {
-                $('#' + next).find('.next').hide();
-                $('#' + next).find('.submit').show();
+                $('#' + next.toString()).find('.next').hide();
+                $('#' + next.toString()).find('.submit').show();
             }
         }
         else{
@@ -224,15 +209,17 @@
             $('#FSecureSalesForm').find('.salesPanel').each(function( index ) {
                 if($(this).find('.panel-heading').text().trim()=='Multiple Choice Questions' || $(this).find('.panel-heading').text().trim()=='True False Questions')
                 {
-                    var correctanswer =  $(this).find('input[type=hidden]').val()
+                    var correctanswer =  $(this).find('.answer').val();
+                    var questionid =  $(this).find('.questionid').val();
                     // var result = {};
                     var questionnumber= $(this).find('label').text();
+
                     var answer = $(this).find("input:checked").val();
                     var isCorrect=0;
                     if(answer == correctanswer)
                     {isCorrect=1;}
                     else{isCorrect=0;}
-                    result_obj.push({questionnumber : questionnumber , answer : answer , isCorrect: isCorrect, quizid : quizid});
+                    result_obj.push({questionid : questionid, questionnumber : questionnumber , answer : answer , isCorrect: isCorrect, quizid : quizid});
 
                 }
                 if($(this).find('.panel-heading').text().trim()=='Multiple Answer Questions')
@@ -241,19 +228,21 @@
                     $(this).find('input:checked').each(function() {
                         selected.push($(this).val());
                     });
-                    var correctanswer =  $(this).find('input[type=hidden]').val()
+                    var correctanswer =  $(this).find('.answer').val();
+                    var questionid =  $(this).find('.questionid').val();
                     var questionnumber= $(this).find('label').text();
                     var  answer = selected.join(", ");
                     var isCorrect = 0;
                     if(answer == correctanswer)
                     {isCorrect=1;}
                     else{isCorrect=0;}
-                    result_obj.push({questionnumber : questionnumber , answer : answer , isCorrect: isCorrect , quizid : quizid});
+                    result_obj.push({questionid : questionid, questionnumber : questionnumber , answer : answer , isCorrect: isCorrect , quizid : quizid});
 
                 }
 
             });
             result_obj=JSON.stringify(result_obj);
+            console.log(result_obj);
 
             $.ajax({
                 contentType: 'application/json; charset=utf-8',

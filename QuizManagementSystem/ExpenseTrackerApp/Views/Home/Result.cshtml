@@ -2,6 +2,14 @@
 @{
     var profileData = Session["UserProfile"] as DAL.UserProfileSessionData;
 }
+<style>
+     .red {
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+     .green{
+         background-color: lightgreen;
+     }
+</style>
 <div class="row">
     <div class="page-title">
         <div class="pull-left ">
@@ -19,7 +27,7 @@
     </div>
 </div>
 <div class="clearfix"></div>
-<div class="fixed-panel-container">
+<div id="Result" class="fixed-panel-container">
     <div class="panel panel-default">
         <div class="panel-heading">
             Result
@@ -28,8 +36,8 @@
         <div class="panel-body">
 
             <fieldset class="row">
-
-
+                <input type="hidden" id="QID" value="@ViewBag.QuizID"/>
+                <input type="hidden" id="UID" value="@profileData.User_ID" />
                 <div class="form-group col-md-3">
                     <label class="control-label"><b>Total Questions </b></label>&nbsp;&nbsp;
                     <label class="control-label"><b>@ViewBag.QuestionCount</b></label>&nbsp;&nbsp;
@@ -56,6 +64,85 @@
                 </div>
 
             </fieldset>
+            <button onclick="Result();">View Complete Result</button>
         </div>
     </div>
 </div>
+
+<div id="completeResult">
+    <div class="clearfix"></div>
+    <br/>
+    <br />
+    <br/>
+    <table id="gridResults"></table>
+</div>
+
+<script type="text/javascript">
+    function Result() {
+        $("#Result").hide();
+        $("#completeResult").show();
+
+    }
+    $(document).ready(function () {
+        debugger;
+        var uid = $("#UID").val();
+        var qid = $("#QID").val();
+       $("#completeResult").hide();
+      
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+
+                read: {
+                    url: '@Url.Action("GetCompleteResult", "Home")',
+                    data: {
+                        uid: uid,
+                        qid: qid
+                    },
+                    dataType: "json" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                }
+            },
+            //pageSize: 16
+        });
+        $("#gridResults").kendoGrid({
+
+
+            dataSource: dataSource,
+
+            scrollable: true,
+            sortable: true,
+            pageable: true,
+            autoBind: true,
+            resizable: true,
+
+            columns: [
+
+
+            {
+                field: "id",
+                hidden: true
+
+            }, {
+                field: "Question",
+                title: "Question",
+                width: 80
+            }, {
+                field: "Answer",
+                title: "Answer",
+                width: 80,
+
+            }, {
+                field: "CorrectAnswer",
+                title: "CorrectAnswer",
+                width: 80,
+
+            },
+            {
+                field: "isCorrect",
+                hidden:true
+
+            }],
+            rowTemplate: '<tr class="#:isCorrect==0? \"red\" : \"green\"#"  data-uid="#: uid #"><td>#:Question #</td><td>#:Answer #</td><td>#:CorrectAnswer #</td></tr>',
+        });
+
+    });
+</script>

@@ -4,6 +4,13 @@
     var profileData = Session["UserProfile"] as DAL.UserProfileSessionData;
 
 }
+<style>
+    
+    .k-window.k-confirm .k-content {
+        padding: 50px 50px;
+    }
+
+</style>
 <div class="container">
     <input type="hidden" id="txtUserId" value="@profileData.User_ID" />
     <table id="QuizGrid"></table>

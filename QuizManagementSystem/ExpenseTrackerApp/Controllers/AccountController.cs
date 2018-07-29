@@ -95,7 +95,7 @@ namespace ExpenseTrackerApp.Controllers
                         return RedirectToAction("CreateQuiz", "Home");
                     }
                     else if (profileData.User_Role == 3) {
-                        return RedirectToAction("AgentView", "Home");
+                        return RedirectToAction("ViewQuiz", "Home");
                     }
 
                     

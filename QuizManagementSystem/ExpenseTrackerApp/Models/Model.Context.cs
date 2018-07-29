@@ -44,8 +44,8 @@ namespace ExpenseTrackerApp.Models
         public virtual DbSet<tblAdminDetail> tblAdminDetails { get; set; }
         public virtual DbSet<tblCategoryMapping> tblCategoryMappings { get; set; }
         public virtual DbSet<tblSecretQuestion> tblSecretQuestions { get; set; }
-        public virtual DbSet<tblUserRole> tblUserRoles { get; set; }
         public virtual DbSet<tblUserAnswers_Latest> tblUserAnswers_Latest { get; set; }
+        public virtual DbSet<tblUserRole> tblUserRoles { get; set; }
     
         public virtual int addQuestion(string questionType, string category, string question, string optionA, string optionB, string optionC, string optionD, string answer)
         {
@@ -278,6 +278,80 @@ namespace ExpenseTrackerApp.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteUser", userIdParameter);
         }
     
+        public virtual int editQuestion(string questionType, string category, string question, string optionA, string optionB, string optionC, string optionD, string answer, Nullable<int> serialNumber)
+        {
+            var questionTypeParameter = questionType != null ?
+                new ObjectParameter("QuestionType", questionType) :
+                new ObjectParameter("QuestionType", typeof(string));
+    
+            var categoryParameter = category != null ?
+                new ObjectParameter("Category", category) :
+                new ObjectParameter("Category", typeof(string));
+    
+            var questionParameter = question != null ?
+                new ObjectParameter("Question", question) :
+                new ObjectParameter("Question", typeof(string));
+    
+            var optionAParameter = optionA != null ?
+                new ObjectParameter("OptionA", optionA) :
+                new ObjectParameter("OptionA", typeof(string));
+    
+            var optionBParameter = optionB != null ?
+                new ObjectParameter("OptionB", optionB) :
+                new ObjectParameter("OptionB", typeof(string));
+    
+            var optionCParameter = optionC != null ?
+                new ObjectParameter("OptionC", optionC) :
+                new ObjectParameter("OptionC", typeof(string));
+    
+            var optionDParameter = optionD != null ?
+                new ObjectParameter("OptionD", optionD) :
+                new ObjectParameter("OptionD", typeof(string));
+    
+            var answerParameter = answer != null ?
+                new ObjectParameter("Answer", answer) :
+                new ObjectParameter("Answer", typeof(string));
+    
+            var serialNumberParameter = serialNumber.HasValue ?
+                new ObjectParameter("SerialNumber", serialNumber) :
+                new ObjectParameter("SerialNumber", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("editQuestion", questionTypeParameter, categoryParameter, questionParameter, optionAParameter, optionBParameter, optionCParameter, optionDParameter, answerParameter, serialNumberParameter);
+        }
+    
+        public virtual int editQuiz(string quizName, Nullable<int> totalQuestions, Nullable<int> timeAllocated, Nullable<int> passingScore, string subjects, Nullable<int> catID, Nullable<int> quizID)
+        {
+            var quizNameParameter = quizName != null ?
+                new ObjectParameter("QuizName", quizName) :
+                new ObjectParameter("QuizName", typeof(string));
+    
+            var totalQuestionsParameter = totalQuestions.HasValue ?
+                new ObjectParameter("TotalQuestions", totalQuestions) :
+                new ObjectParameter("TotalQuestions", typeof(int));
+    
+            var timeAllocatedParameter = timeAllocated.HasValue ?
+                new ObjectParameter("TimeAllocated", timeAllocated) :
+                new ObjectParameter("TimeAllocated", typeof(int));
+    
+            var passingScoreParameter = passingScore.HasValue ?
+                new ObjectParameter("PassingScore", passingScore) :
+                new ObjectParameter("PassingScore", typeof(int));
+    
+            var subjectsParameter = subjects != null ?
+                new ObjectParameter("Subjects", subjects) :
+                new ObjectParameter("Subjects", typeof(string));
+    
+            var catIDParameter = catID.HasValue ?
+                new ObjectParameter("CatID", catID) :
+                new ObjectParameter("CatID", typeof(int));
+    
+            var quizIDParameter = quizID.HasValue ?
+                new ObjectParameter("QuizID", quizID) :
+                new ObjectParameter("QuizID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("editQuiz", quizNameParameter, totalQuestionsParameter, timeAllocatedParameter, passingScoreParameter, subjectsParameter, catIDParameter, quizIDParameter);
+        }
+    
         public virtual int editSubject(string subjectName, string category, Nullable<int> activeF, Nullable<int> subjectId)
         {
             var subjectNameParameter = subjectName != null ?
@@ -358,6 +432,19 @@ namespace ExpenseTrackerApp.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getAgents_Result>("getAgents");
         }
     
+        public virtual ObjectResult<GetCompleteResults_Result> GetCompleteResults(Nullable<int> uid, Nullable<int> qid)
+        {
+            var uidParameter = uid.HasValue ?
+                new ObjectParameter("uid", uid) :
+                new ObjectParameter("uid", typeof(int));
+    
+            var qidParameter = qid.HasValue ?
+                new ObjectParameter("qid", qid) :
+                new ObjectParameter("qid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCompleteResults_Result>("GetCompleteResults", uidParameter, qidParameter);
+        }
+    
         public virtual ObjectResult<getQuestionList_Result> getQuestionList()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getQuestionList_Result>("getQuestionList");
@@ -388,6 +475,32 @@ namespace ExpenseTrackerApp.Models
                 new ObjectParameter("QuizID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetQuizQuestions_Result>("GetQuizQuestions", userIdParameter, quizIDParameter);
+        }
+    
+        public virtual ObjectResult<GetResults_Result> GetResults(Nullable<int> userID, Nullable<int> quizID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var quizIDParameter = quizID.HasValue ?
+                new ObjectParameter("QuizID", quizID) :
+                new ObjectParameter("QuizID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetResults_Result>("GetResults", userIDParameter, quizIDParameter);
+        }
+    
+        public virtual ObjectResult<GetResultsGrid_Data_Result> GetResultsGrid_Data(Nullable<int> userID, Nullable<int> quizID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var quizIDParameter = quizID.HasValue ?
+                new ObjectParameter("QuizID", quizID) :
+                new ObjectParameter("QuizID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetResultsGrid_Data_Result>("GetResultsGrid_Data", userIDParameter, quizIDParameter);
         }
     
         public virtual ObjectResult<getRoles_Result> getRoles()
@@ -424,33 +537,7 @@ namespace ExpenseTrackerApp.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getUserDetails_Result>("getUserDetails");
         }
     
-        public virtual ObjectResult<viewReport_Result> viewReport(Nullable<int> roleid, Nullable<int> userid)
-        {
-            var roleidParameter = roleid.HasValue ?
-                new ObjectParameter("roleid", roleid) :
-                new ObjectParameter("roleid", typeof(int));
-    
-            var useridParameter = userid.HasValue ?
-                new ObjectParameter("userid", userid) :
-                new ObjectParameter("userid", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<viewReport_Result>("viewReport", roleidParameter, useridParameter);
-        }
-    
-        public virtual ObjectResult<GetResults_Result> GetResults(Nullable<int> userID, Nullable<int> quizID)
-        {
-            var userIDParameter = userID.HasValue ?
-                new ObjectParameter("UserID", userID) :
-                new ObjectParameter("UserID", typeof(int));
-    
-            var quizIDParameter = quizID.HasValue ?
-                new ObjectParameter("QuizID", quizID) :
-                new ObjectParameter("QuizID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetResults_Result>("GetResults", userIDParameter, quizIDParameter);
-        }
-    
-        public virtual int InsertAnswers(Nullable<int> userId, Nullable<int> quizID, string question, string answer, Nullable<int> isCorrect)
+        public virtual int InsertAnswers(Nullable<int> userId, Nullable<int> quizID, string question, string answer, Nullable<int> isCorrect, Nullable<int> questionid)
         {
             var userIdParameter = userId.HasValue ?
                 new ObjectParameter("UserId", userId) :
@@ -472,7 +559,11 @@ namespace ExpenseTrackerApp.Models
                 new ObjectParameter("isCorrect", isCorrect) :
                 new ObjectParameter("isCorrect", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertAnswers", userIdParameter, quizIDParameter, questionParameter, answerParameter, isCorrectParameter);
+            var questionidParameter = questionid.HasValue ?
+                new ObjectParameter("questionid", questionid) :
+                new ObjectParameter("questionid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertAnswers", userIdParameter, quizIDParameter, questionParameter, answerParameter, isCorrectParameter, questionidParameter);
         }
     
         public virtual int UpdateMarks(Nullable<int> quizID, Nullable<int> userId)
@@ -486,6 +577,19 @@ namespace ExpenseTrackerApp.Models
                 new ObjectParameter("UserId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateMarks", quizIDParameter, userIdParameter);
+        }
+    
+        public virtual ObjectResult<viewReport_Result> viewReport(Nullable<int> roleid, Nullable<int> userid)
+        {
+            var roleidParameter = roleid.HasValue ?
+                new ObjectParameter("roleid", roleid) :
+                new ObjectParameter("roleid", typeof(int));
+    
+            var useridParameter = userid.HasValue ?
+                new ObjectParameter("userid", userid) :
+                new ObjectParameter("userid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<viewReport_Result>("viewReport", roleidParameter, useridParameter);
         }
     }
 }

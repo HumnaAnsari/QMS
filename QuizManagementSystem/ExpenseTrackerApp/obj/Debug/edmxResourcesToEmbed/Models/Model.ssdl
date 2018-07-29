@@ -145,6 +145,7 @@ warning 6002: The table/view 'DBONLINETEST.dbo.tblUserAnswers_Latest' does not h
   <EntityType Name="tblUserAnswers_Latest">
     <Key>
       <PropertyRef Name="id" />
+      <PropertyRef Name="SerialNumber" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserId" Type="int" />
@@ -152,6 +153,7 @@ warning 6002: The table/view 'DBONLINETEST.dbo.tblUserAnswers_Latest' does not h
     <Property Name="Question" Type="varchar" MaxLength="250" />
     <Property Name="Answer" Type="varchar" MaxLength="250" />
     <Property Name="isCorrect" Type="int" />
+    <Property Name="SerialNumber" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tblUserDetails">
     <Key>
@@ -311,6 +313,26 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="deleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
   </Function>
+  <Function Name="editQuestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QuestionType" Type="varchar" Mode="In" />
+    <Parameter Name="Category" Type="varchar" Mode="In" />
+    <Parameter Name="Question" Type="varchar(max)" Mode="In" />
+    <Parameter Name="OptionA" Type="varchar" Mode="In" />
+    <Parameter Name="OptionB" Type="varchar" Mode="In" />
+    <Parameter Name="OptionC" Type="varchar" Mode="In" />
+    <Parameter Name="OptionD" Type="varchar" Mode="In" />
+    <Parameter Name="Answer" Type="varchar" Mode="In" />
+    <Parameter Name="SerialNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="editQuiz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QuizName" Type="varchar" Mode="In" />
+    <Parameter Name="TotalQuestions" Type="int" Mode="In" />
+    <Parameter Name="TimeAllocated" Type="int" Mode="In" />
+    <Parameter Name="PassingScore" Type="int" Mode="In" />
+    <Parameter Name="Subjects" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CatID" Type="int" Mode="In" />
+    <Parameter Name="QuizID" Type="int" Mode="In" />
+  </Function>
   <Function Name="editSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="SubjectName" Type="varchar" Mode="In" />
     <Parameter Name="Category" Type="varchar(max)" Mode="In" />
@@ -342,6 +364,10 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="getCategoryNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
     <Parameter Name="subjectId" Type="int" Mode="In" />
   </Function>
+  <Function Name="GetCompleteResults" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="uid" Type="int" Mode="In" />
+    <Parameter Name="qid" Type="int" Mode="In" />
+  </Function>
   <Function Name="getQuestionList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetQuizData_Agent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
@@ -355,6 +381,10 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     <Parameter Name="QuizId" Type="int" Mode="In" />
   </Function>
   <Function Name="GetResults" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="QuizID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetResultsGrid_Data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserID" Type="int" Mode="In" />
     <Parameter Name="QuizID" Type="int" Mode="In" />
   </Function>
@@ -372,6 +402,7 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     <Parameter Name="Question" Type="varchar" Mode="In" />
     <Parameter Name="Answer" Type="varchar" Mode="In" />
     <Parameter Name="isCorrect" Type="int" Mode="In" />
+    <Parameter Name="questionid" Type="int" Mode="In" />
   </Function>
   <Function Name="UpdateMarks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="QuizID" Type="int" Mode="In" />
@@ -421,7 +452,8 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     [tblUserAnswers_Latest].[QuizID] AS [QuizID], 
     [tblUserAnswers_Latest].[Question] AS [Question], 
     [tblUserAnswers_Latest].[Answer] AS [Answer], 
-    [tblUserAnswers_Latest].[isCorrect] AS [isCorrect]
+    [tblUserAnswers_Latest].[isCorrect] AS [isCorrect], 
+    [tblUserAnswers_Latest].[SerialNumber] AS [SerialNumber]
     FROM [dbo].[tblUserAnswers_Latest] AS [tblUserAnswers_Latest]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="tblUserRoles" EntityType="Self.tblUserRoles" store:Type="Tables" store:Schema="dbo">

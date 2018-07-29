@@ -151,9 +151,9 @@
             </div>
             <div class="form-group col-md-8">
                 <select id="eddlQuesType" style="width: 100%;" name="Question Type" data-bind="value:ChoiceType" required>
-                    <option value="1">Single</option>
-                    <option value="2">Multiple</option>
-                    <option value="3">True/False</option>
+                    <option value="Single">Single</option>
+                    <option value="Multiple">Multiple</option>
+                    <option value="True/False">True/False</option>
                 </select>
                 <span class="k-invalid-msg" data-for="eddlQuesType"></span>
             </div>
@@ -308,30 +308,23 @@
                 function oneditChange() {
                     debugger;
                     var val = $('#eddlQuesType').val();
-                    if (val == 1) {
-                        $('#etxtOptionA').val('');
-                        $('#etxtOptionB').val('');
-                        $('#etxtOptionC').val('');
-                        $('#etxtOptionD').val('');
+                    if (val == "Single") {
+                        
                         $("#etxtOptionC").attr("disabled", false);
                         $("#etxtOptionD").attr("disabled", false);
                         $("#eddlmCorrectAns").hide();
                         $("#eddlCorrectAns").show();
                         $("#eddlCorrectAns").children('option:gt(1)').show();
                     }
-                    else if (val == 2) {
-                        $('#etxtOptionA').val('');
-                        $('#etxtOptionB').val('');
-                        $('#etxtOptionC').val('');
-                        $('#etxtOptionD').val('');
+                    else if (val == "Multiple") {
+                        
                         $("#eddlCorrectAns").hide();
                         $("#eddlmCorrectAns").show();
                     }
-                    else if (val == 3) {
+                    else if (val == "True/False") {
                         $('#etxtOptionA').val('True');
                         $('#etxtOptionB').val('False');
-                        $('#etxtOptionC').val('');
-                        $('#etxtOptionD').val('');
+                       
                         $("#etxtOptionA").attr("disabled", "disabled");
                         $("#etxtOptionB").attr("disabled", "disabled");
                         $("#etxtOptionC").attr("disabled", "disabled");
@@ -341,7 +334,62 @@
                         $("#eddlCorrectAns").children('option:gt(1)').hide();
                     }
                 }
+                function onRequestEdit(arg) {
+                    console.log(arg.model);
+                    var amodel = arg.model;
+                    var validator = $("#EditQuestionForm").kendoValidator().data("kendoValidator");
+                    if (validator.validate()) {
+                        $("#loader").show();
+                        var QuestionType = $('#eddlQuesType').data("kendoDropDownList").text();
+                        var Category = $('#eddlCategory').data("kendoDropDownList").text();
+                        var Question = $('#etxtQuestion').val();
+                        var OptionA = $('#etxtOptionA').val();
+                        var OptionB = $('#etxtOptionB').val();
+                        var OptionC = $('#etxtOptionC').val();
+                        var OptionD = $('#etxtOptionD').val();
+                        var Answer = '';
+                        var present = $('#eddlQuesType').data("kendoDropDownList").text() == "Multiple" ? true : false;
+                        if (present) {
+                            Answer = $('#eddlmCorrectAns').val();
+                            Answer = Answer.toString();
+                        } else {
+                            Answer = $("#eddlCorrectAns").val();
+                        }
 
+                        var Editmodel = {
+
+                            "QuestionType": QuestionType,
+                            "Category": Category,
+                            "Question": Question,
+                            "OptionA": OptionA,
+                            "OptionB": OptionB,
+                            "OptionC": OptionC,
+                            "OptionD": OptionD,
+                            "Answer": Answer,
+                            "SerialNumber" : amodel.SerialNumber
+                        };
+
+                        $.ajax({
+                            url: '@Url.Action("EditQuestion", "Home")',
+                            data: JSON.stringify(Editmodel),
+                            type: 'POST',
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+
+                                $("#loader").hide();
+
+                                if (data == 1 || data == -1) {
+                                    new PNotify({
+                                        title: 'Success!',
+                                        text: 'Record has been Updated.',
+                                        type: 'success'
+                                    });
+                                    $("#gridQuestions").data("kendoGrid").dataSource.read();
+                                }
+                            }
+                        });
+                    }
+                }
                 $("#SaveQuestion").click(function () {
                     var validator = $("#addQuesModal").kendoValidator().data("kendoValidator");
                     if (validator.validate()) {
@@ -571,12 +619,64 @@
                     },
                     edit: function (e) {
                         
+                        var ans = e.model.Answer;
+                        ans = ans.split(",");
+                        //var arr = arr.push();
+                        console.log(ans);
+                        var val = $('#eddlQuesType').val();
+                        $("#eddlmCorrectAns").val(ans);
+                        if (val == "Single") {
+                            
+                            $("#etxtOptionC").attr("disabled", false);
+                            $("#etxtOptionD").attr("disabled", false);
+                            $("#eddlmCorrectAns").hide();
+                            $("#eddlCorrectAns").show();
+                            $("#eddlCorrectAns").children('option:gt(1)').show();
+                        }
+                        else if (val == "Multiple") {
+                            
+                            $("#eddlCorrectAns").hide();
+                            $("#eddlmCorrectAns").show();
+                        }
+                        else if (val == "True/False") {
+                            
+                            $("#etxtOptionA").attr("disabled", "disabled");
+                            $("#etxtOptionB").attr("disabled", "disabled");
+                            $("#etxtOptionC").attr("disabled", "disabled");
+                            $("#etxtOptionD").attr("disabled", "disabled");
+                            $("#eddlmCorrectAns").hide();
+                            $("#eddlCorrectAns").show();
+                            $("#eddlCorrectAns").children('option:gt(1)').hide();
+                        }
                        // $("#eddlQuesType").kendoDropDownList().data("kendoDropDownList");
-                    $("#eddlQuesType").kendoDropDownList(
-                    {
-                        change: oneditChange
-                    }).data("kendoDropDownList");
-
+                        $("#eddlQuesType").kendoDropDownList(
+                       {
+                           change: oneditChange
+                       }).data("kendoDropDownList");
+                        $("#eddlCategory").kendoDropDownList({
+                            optionLabel: "Select Test Category",
+                            filter: "startswith",
+                            dataTextField: "SubjectName",
+                            dataValueField: "SubjectName",
+                            searchable: false,
+                            dataSource: {
+                                serverFiltering: false,
+                                transport: {
+                                    read: {
+                                        url: '@Url.Action("ListSubjects", "Home")',
+                                        dataType: "json",
+                                    },
+                                    schema: {
+                                        model: {
+                                            fields: {
+                                                CategoryID: { type: "string" },
+                                                CategoryName: { type: "string" }
+                                            },
+                                        },
+                                    },
+                                },
+                            }
+                        }).data("kendoDropDownList");
 
                         var updateBtn = e.container.find(".k-grid-update");
                         updateBtn.removeClass("k-grid-update"); //removing this class will prevent the grid from saving on click

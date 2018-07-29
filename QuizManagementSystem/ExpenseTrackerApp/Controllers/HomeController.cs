@@ -57,7 +57,7 @@ namespace ExpenseTrackerApp.Controllers
             {
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    var result = db.addUser(model.UserName, model.FirstName, model.LastName, model.Password, model.Email, model.PhoneNumber, model.SecretQuestion,model.SecretAnswer, model.Role);
+                    var result = db.addUser(model.UserName, model.FirstName, model.LastName, model.Password, model.Email, model.PhoneNumber, model.SecretQuestion, model.SecretAnswer, model.Role);
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -91,7 +91,7 @@ namespace ExpenseTrackerApp.Controllers
             {
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    var result = db.editUser(model.UserId,model.UserName, model.FirstName, model.LastName, model.Password, model.Email, model.PhoneNumber, model.SecretQuestion, model.SecretAnswer, model.RoleName);
+                    var result = db.editUser(model.UserId, model.UserName, model.FirstName, model.LastName, model.Password, model.Email, model.PhoneNumber, model.SecretQuestion, model.SecretAnswer, model.RoleName);
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -114,7 +114,7 @@ namespace ExpenseTrackerApp.Controllers
         {
             return null;
         }
-        
+
 
         public ActionResult DeleteUser(int UserId)
         {
@@ -160,7 +160,7 @@ namespace ExpenseTrackerApp.Controllers
             {
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    var data = db.assignQuizToAgent(model.QuizId,model.TeacherId,model.ExpireDate,model.Agents);
+                    var data = db.assignQuizToAgent(model.QuizId, model.TeacherId, model.ExpireDate, model.Agents);
                     return Json(data, JsonRequestBehavior.AllowGet);
                 }
 
@@ -213,7 +213,7 @@ namespace ExpenseTrackerApp.Controllers
             return null;
 
         }
-        
+
         public ActionResult GetTestCategories()
         {
             try
@@ -243,7 +243,7 @@ namespace ExpenseTrackerApp.Controllers
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
                     data = db.getSubjectsList().ToList();
-                    
+
                 }
 
                 return Json(data, JsonRequestBehavior.AllowGet);
@@ -263,7 +263,41 @@ namespace ExpenseTrackerApp.Controllers
             {
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    var result = db.addSubject(model.SubjectName,model.Category,model.ActiveF);
+                    var result = db.addSubject(model.SubjectName, model.Category, model.ActiveF);
+                    return Json(result, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
+        }
+
+        public ActionResult EditQuestion(AddQuestionModel model)
+        {
+            try
+            {
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    var result = db.editQuestion(model.QuestionType,model.Category,model.Question,model.OptionA,model.OptionB,model.OptionC,model.OptionD,model.Answer,model.SerialNumber);
+                    return Json(result, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
+        }
+
+        public ActionResult EditQuiz(AddQuizModel model)
+        {
+            try
+            {
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    var result = db.editQuiz(model.QuizName,model.TotalQuestions,model.TimeAllocated,model.PassingScore,model.Subjects,model.CatID,model.QuizID);
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -281,7 +315,7 @@ namespace ExpenseTrackerApp.Controllers
             {
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    var result = db.editSubject(model.SubjectName, model.Category, model.ActiveF,model.SubjectId);
+                    var result = db.editSubject(model.SubjectName, model.Category, model.ActiveF, model.SubjectId);
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -319,7 +353,7 @@ namespace ExpenseTrackerApp.Controllers
             {
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    var result = db.addQuestion(model.QuestionType,model.Category,model.Question,model.OptionA,model.OptionB,model.OptionC,model.OptionD,model.Answer);
+                    var result = db.addQuestion(model.QuestionType, model.Category, model.Question, model.OptionA, model.OptionB, model.OptionC, model.OptionD, model.Answer);
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -375,7 +409,7 @@ namespace ExpenseTrackerApp.Controllers
         {
             try
             {
-                
+
                 List<getAgents_Result> data = new List<getAgents_Result>();
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
@@ -420,7 +454,7 @@ namespace ExpenseTrackerApp.Controllers
                 List<viewReport_Result> list = new List<viewReport_Result>();
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    list = db.viewReport(roleid,userid).ToList();
+                    list = db.viewReport(roleid, userid).ToList();
                 }
 
                 return Json(list, JsonRequestBehavior.AllowGet);
@@ -465,7 +499,7 @@ namespace ExpenseTrackerApp.Controllers
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
@@ -479,7 +513,7 @@ namespace ExpenseTrackerApp.Controllers
                 List<getSecretQuestions_Result> data = new List<getSecretQuestions_Result>();
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    
+
                     data = db.getSecretQuestions().ToList();
                 }
 
@@ -534,6 +568,7 @@ namespace ExpenseTrackerApp.Controllers
         {
             try
             {
+                ViewBag.QuizID = QuizID;
                 var profileData = Session["UserProfile"] as UserProfileSessionData;
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
@@ -566,7 +601,7 @@ namespace ExpenseTrackerApp.Controllers
                 {
                     using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                     {
-                        result = db.InsertAnswers(profileData.User_ID, item.quizid, item.questionnumber, item.answer, item.isCorrect);
+                        result = db.InsertAnswers(profileData.User_ID, item.quizid, item.questionnumber, item.answer, item.isCorrect, item.questionid);
                     }
                 }
                 if (result == 1)
@@ -584,6 +619,25 @@ namespace ExpenseTrackerApp.Controllers
                 throw;
             }
         }
+        public ActionResult GetCompleteResult(int uid, int qid)
+        {
+            try
+            {
+                List<GetResultsGrid_Data_Result> data = new List<GetResultsGrid_Data_Result>();
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    data = db.GetResultsGrid_Data(uid, qid).ToList();
+                }
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                //logger.Error(ex);
+                return null;
+            }
+        }
+
         public ActionResult GetQuizQuestions(int UserId, int QuizID, int TimeAllocated)
         {
             var obj = this.DeserializeObject<QuizModel>("QuizModel");
@@ -607,6 +661,7 @@ namespace ExpenseTrackerApp.Controllers
                     ques.Option3 = data[i].Option3.ToString();
                     ques.Option4 = data[i].Option4.ToString();
                     ques.Question = data[i].Question.ToString();
+                    ques.QuestionID = Convert.ToInt32(data[i].QuestionID.ToString());
                     ques.QuizID = Convert.ToInt32(data[i].QuizID.ToString());
                     ques.SubjectID = Convert.ToInt32(data[i].SubjectID.ToString());
                     ques.SubjectName = data[i].SubjectName.ToString();

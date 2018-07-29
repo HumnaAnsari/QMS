@@ -214,6 +214,9 @@
     <Compile Include="Models\getAgents_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetCompleteResults_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\getQuestionList_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -224,6 +227,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetQuizQuestions_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetResultsGrid_Data_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetResults_Result.cs">

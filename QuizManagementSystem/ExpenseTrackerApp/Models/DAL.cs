@@ -15,10 +15,11 @@ namespace ExpenseTrackerApp.Models
             public string UserName { get; set; }
             public string Password { get; set; }
             public int RoleId { get; set; }
-        
+
         }
         public class result_obj
         {
+            public int questionid { get; set; }
             public string questionnumber { get; set; }
             public string answer { get; set; }
             public int isCorrect { get; set; }
@@ -49,6 +50,7 @@ namespace ExpenseTrackerApp.Models
             public int TimeAllocated { get; set; }
             public int PassingScore { get; set; }
             public string Subjects { get; set; }
+            public int QuizID { get; set;  }
 
         }
         public class AddQuestionModel
@@ -61,6 +63,7 @@ namespace ExpenseTrackerApp.Models
             public string OptionC { get; set; }
             public string OptionD { get; set; }
             public string Answer { get; set; }
+            public int SerialNumber { get; set;  }
 
         }
 
@@ -80,7 +83,7 @@ namespace ExpenseTrackerApp.Models
             public string Agents { get; set; }
 
         }
-        
+
         public class UserProfileSessionData
         {
             public int User_ID { get; set; }
@@ -96,14 +99,14 @@ namespace ExpenseTrackerApp.Models
         }
 
         public class LoginViewModel
-        { 
-        [Required, AllowHtml]
-        public string Username { get; set; }
+        {
+            [Required, AllowHtml]
+            public string Username { get; set; }
 
-        [Required]
-        [AllowHtml]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+            [Required]
+            [AllowHtml]
+            [DataType(DataType.Password)]
+            public string Password { get; set; }
         }
         public class QuizModel
         {
@@ -117,6 +120,7 @@ namespace ExpenseTrackerApp.Models
             public int SubjectID { get; set; }
             public string SubjectName { get; set; }
             public string Question { get; set; }
+            public int QuestionID { get; set; }
             public string Option1 { get; set; }
             public string Option2 { get; set; }
             public string Option3 { get; set; }

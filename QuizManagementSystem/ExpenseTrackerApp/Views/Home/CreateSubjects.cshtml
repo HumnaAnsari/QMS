@@ -302,14 +302,14 @@
 
                                      $.ajax({
                                          url: '@Url.Action("DeleteSubject", "Home")',
-                                         data: JSON.stringify(Questionmodel),
+                                         data: JSON.stringify(Subjectmodel),
                                          type: 'POST',
                                          contentType: 'application/json; charset=utf-8',
                                          success: function (data) {
 
                                              //$("#loader").hide();
 
-                                             if (data == 1 || data == -1) {
+                                             if (data == 1 || data == -1 || data == 2) {
                                                  new PNotify({
                                                      title: 'Success!',
                                                      text: 'Record has been Deleted.',

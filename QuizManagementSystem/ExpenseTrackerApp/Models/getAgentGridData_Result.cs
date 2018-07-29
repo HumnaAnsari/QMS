@@ -15,9 +15,9 @@ namespace ExpenseTrackerApp.Models
     {
         public int QuizID { get; set; }
         public string QuizName { get; set; }
-        public Nullable<System.DateTime> ExpireOn { get; set; }
+        public string ExpireOn { get; set; }
         public string Controller { get; set; }
-        public Nullable<System.DateTime> CompletedOn { get; set; }
+        public string CompletedOn { get; set; }
         public string Status { get; set; }
         public Nullable<decimal> Marks { get; set; }
     }

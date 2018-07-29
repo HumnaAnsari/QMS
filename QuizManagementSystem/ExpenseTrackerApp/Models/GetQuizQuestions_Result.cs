@@ -17,6 +17,7 @@ namespace ExpenseTrackerApp.Models
         public int SubjectID { get; set; }
         public string SubjectName { get; set; }
         public string Question { get; set; }
+        public int QuestionID { get; set; }
         public string Option1 { get; set; }
         public string Option2 { get; set; }
         public string Option3 { get; set; }
