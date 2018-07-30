@@ -119,9 +119,10 @@
                             var QuizModel = {
                                 "UserId": data.UserId,
                                 "QuizID": data.TestId,
-                                "TimeAllocated" : data.TimeAllocated
+                                "TimeAllocated": data.TimeAllocated,
+                                "AssignID" : data.AssignID
                             }
-                            window.location.href = '/Home/GetQuizQuestions?UserId=' + data.UserId + "&QuizID=" + data.TestId + "&TimeAllocated=" + data.TimeAllocated;
+                            window.location.href = '/Home/GetQuizQuestions?UserId=' + data.UserId + "&QuizID=" + data.TestId + "&TimeAllocated=" + data.TimeAllocated + "&AssignID=" + data.AssignID;
                             @*$.ajax({
                                 url: '@Url.Action("GetQuizQuestions", "Home")',
                                 data: JSON.stringify(QuizModel),

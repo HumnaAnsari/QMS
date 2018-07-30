@@ -55,7 +55,7 @@ namespace ExpenseTrackerApp.Controllers
             return View();
         }
 
-        public JsonResult Graph(int uid, int qid)
+        public JsonResult Graph(int uid, int qid, int AssignID)
         {
             try
             {
@@ -63,16 +63,16 @@ namespace ExpenseTrackerApp.Controllers
                 List<GetGraph_Result> obj = new List<GetGraph_Result>();
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    obj = db.GetGraph(uid, qid).ToList();
+                    obj = db.GetGraph(uid, qid, AssignID).ToList();
                     return Json(obj, JsonRequestBehavior.AllowGet);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw;
             }
 
-            
+
         }
 
         public ActionResult AddUser(AddUserModel model)
@@ -216,7 +216,7 @@ namespace ExpenseTrackerApp.Controllers
             return null;
 
         }
-        
+
         public ActionResult ListUsersforApproval()
         {
             try
@@ -344,7 +344,7 @@ namespace ExpenseTrackerApp.Controllers
             {
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    var result = db.editQuestion(model.QuestionType,model.Category,model.Question,model.OptionA,model.OptionB,model.OptionC,model.OptionD,model.Answer,model.SerialNumber);
+                    var result = db.editQuestion(model.QuestionType, model.Category, model.Question, model.OptionA, model.OptionB, model.OptionC, model.OptionD, model.Answer, model.SerialNumber);
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -361,7 +361,7 @@ namespace ExpenseTrackerApp.Controllers
             {
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    var result = db.editQuiz(model.QuizName,model.TotalQuestions,model.TimeAllocated,model.PassingScore,model.Subjects,model.CatID,model.QuizID);
+                    var result = db.editQuiz(model.QuizName, model.TotalQuestions, model.TimeAllocated, model.PassingScore, model.Subjects, model.CatID, model.QuizID);
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
             }
@@ -628,7 +628,26 @@ namespace ExpenseTrackerApp.Controllers
             return null;
 
         }
-        public ActionResult Result(int QuizID)
+        public ActionResult UpdateTimoutStatus(int AssignID)
+        {
+            string result = "0";
+            var profileData = Session["UserProfile"] as UserProfileSessionData;
+            try
+            {
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    db.UpdateTimoutStatus(profileData.User_ID, AssignID);
+                }
+
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public ActionResult Result(int QuizID, int AssignID)
         {
             try
             {
@@ -636,7 +655,7 @@ namespace ExpenseTrackerApp.Controllers
                 var profileData = Session["UserProfile"] as UserProfileSessionData;
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    List<GetResults_Result> data = db.GetResults(profileData.User_ID, QuizID).ToList();
+                    List<GetResults_Result> data = db.GetResults(profileData.User_ID, QuizID, AssignID).ToList();
                     ViewBag.Status = data.FirstOrDefault().Status.ToString();
                     ViewBag.Marks = data.FirstOrDefault().Marks.ToString();
                     ViewBag.CompleteDate = data.FirstOrDefault().CompleteDate.ToString();
@@ -644,6 +663,7 @@ namespace ExpenseTrackerApp.Controllers
                     ViewBag.CorrectAnswer = data.FirstOrDefault().CorrectAnswers.ToString();
                     ViewBag.WrongAnswer = data.FirstOrDefault().WrongAnswers.ToString();
                     ViewBag.QuizName = data.FirstOrDefault().QuizName.ToString();
+                    ViewBag.AssignID = AssignID;
                 }
 
                 return View();
@@ -665,7 +685,7 @@ namespace ExpenseTrackerApp.Controllers
                 {
                     using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                     {
-                        result = db.InsertAnswers(profileData.User_ID, item.quizid, item.questionnumber, item.answer, item.isCorrect, item.questionid);
+                        result = db.InsertAnswers(profileData.User_ID, item.quizid, item.questionnumber, item.answer, item.isCorrect, item.questionid, item.AssignID);
                     }
                 }
                 if (result == 1)
@@ -683,14 +703,14 @@ namespace ExpenseTrackerApp.Controllers
                 throw;
             }
         }
-        public ActionResult GetCompleteResult(int uid, int qid)
+        public ActionResult GetCompleteResult(int uid, int qid, int AssignID)
         {
             try
             {
                 List<GetResultsGrid_Data_Result> data = new List<GetResultsGrid_Data_Result>();
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    data = db.GetResultsGrid_Data(uid, qid).ToList();
+                    data = db.GetResultsGrid_Data(uid, qid, AssignID).ToList();
                 }
 
                 return Json(data, JsonRequestBehavior.AllowGet);
@@ -702,10 +722,11 @@ namespace ExpenseTrackerApp.Controllers
             }
         }
 
-        public ActionResult GetQuizQuestions(int UserId, int QuizID, int TimeAllocated)
+        public ActionResult GetQuizQuestions(int UserId, int QuizID, int TimeAllocated, int AssignID)
         {
             var obj = this.DeserializeObject<QuizModel>("QuizModel");
             ViewBag.TimeAllocated = TimeAllocated.ToString();
+            ViewBag.AssignID = Convert.ToInt32(AssignID.ToString());
             try
             {
                 List<GetQuizQuestions_Result> data = new List<GetQuizQuestions_Result>();

@@ -84,13 +84,14 @@
 </div>
 
 <script type="text/javascript">
-    function createChart(uid, qid) {
+    function createChart(uid, qid,assignid) {
         
         $.ajax({
             url: '@Url.Action("Graph", "Home")',
             data: JSON.stringify({
                 uid: uid,
-                qid: qid
+                qid: qid,
+                assignid: assignid
             }),
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
@@ -158,7 +159,8 @@
         debugger;
         var uid = $("#UID").val();
         var qid = $("#QID").val();
-        createChart(uid, qid);
+        var assignid = '@ViewBag.AssignID';
+        createChart(uid, qid, assignid);
        $("#completeResult").hide();
       
         var dataSource = new kendo.data.DataSource({
@@ -168,7 +170,8 @@
                     url: '@Url.Action("GetCompleteResult", "Home")',
                     data: {
                         uid: uid,
-                        qid: qid
+                        qid: qid,
+                        assignid: assignid
                     },
                     dataType: "json" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                 }

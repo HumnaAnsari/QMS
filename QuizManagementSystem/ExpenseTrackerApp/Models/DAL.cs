@@ -24,6 +24,7 @@ namespace ExpenseTrackerApp.Models
             public string answer { get; set; }
             public int isCorrect { get; set; }
             public int quizid { get; set; }
+            public int AssignID { get; set; }
 
         }
         public class AddUserModel
@@ -50,7 +51,7 @@ namespace ExpenseTrackerApp.Models
             public int TimeAllocated { get; set; }
             public int PassingScore { get; set; }
             public string Subjects { get; set; }
-            public int QuizID { get; set;  }
+            public int QuizID { get; set; }
 
         }
         public class AddQuestionModel
@@ -63,7 +64,7 @@ namespace ExpenseTrackerApp.Models
             public string OptionC { get; set; }
             public string OptionD { get; set; }
             public string Answer { get; set; }
-            public int SerialNumber { get; set;  }
+            public int SerialNumber { get; set; }
 
         }
 

@@ -13,6 +13,7 @@ namespace ExpenseTrackerApp.Models
     
     public partial class GetQuizData_Agent_Result
     {
+        public int AssignID { get; set; }
         public Nullable<int> UserId { get; set; }
         public Nullable<int> TestId { get; set; }
         public string ExpireDate { get; set; }
