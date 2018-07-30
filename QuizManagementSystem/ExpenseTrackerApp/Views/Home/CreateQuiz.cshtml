@@ -159,7 +159,7 @@
             </div>
             <div class="form-group col-md-8">
                 <input data-message="Please Select Value" data-bind="value:Subjects" name="Questions From" class="form-control" id="eddlQuesFrom">
-                <span class="k-invalid-msg" data-for="eddlQuesFrom"></span>
+                <span class="k-invalid-msg" id="quesinvalidmsg" data-for="eddlQuesFrom"></span>
             </div>
         </div>
         <div class="row">
@@ -454,7 +454,13 @@
         });
 
         function onRequestEdit(arg) {
+            debugger;
             console.log(arg.model);
+            var check = $('#eddlQuesFrom').data("kendoMultiSelect").value().length;
+            if (check == 0) {
+                $("#quesinvalidmsg").text("Please select Subjects.");
+                return false;
+            }
             var model = arg.model;
             var validator = $("#EditQuizForm").kendoValidator().data("kendoValidator");
             if (validator.validate()) {
@@ -492,7 +498,7 @@
                              $('#EditQuiz').modal('hide');
                              new PNotify({
                                  title: 'Success!',
-                                 text: 'Record has been Inserted.',
+                                 text: 'Record has been Updated.',
                                  type: 'success'
                              });
                              //ClearData();
@@ -502,7 +508,7 @@
                              $('#EditQuiz').modal('hide');
                              new PNotify({
                                  title: 'Error!',
-                                 text: 'Record Insertion Failed.',
+                                 text: 'Record Updation Failed.',
                                  type: 'error'
                              });
                          }
@@ -650,7 +656,8 @@
                 console.log(e);
             },
             edit: function (e) {
-
+                $('#eddlQuesFrom').val('');
+                $("#eddlTestCategories").val('');
             $("#eddlTestCategories").kendoDropDownList({
             optionLabel: "Select Test Category",
             filter: "startswith",
