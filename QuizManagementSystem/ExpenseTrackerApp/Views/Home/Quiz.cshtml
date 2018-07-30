@@ -202,7 +202,7 @@
     function Submit(id)
     {
         var quizid = '@Model.FirstOrDefault().QuizID';
-        if($('#' +id).find('input').is(":checked"))
+        if($('#' +id.toString()).find('input').is(":checked"))
         {
             var result_obj= [];
 

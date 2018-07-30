@@ -211,18 +211,6 @@ warning 6002: The table/view 'DBONLINETEST.dbo.tblUserRoles' does not have a pri
     <Property Name="roleid" Type="int" Nullable="false" />
     <Property Name="isActive" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'DBONLINETEST.dbo.TestSettingCategories' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TestSettingCategories">
-          <Property Name="TestID" Type="int" />
-          <Property Name="SubjectID" Type="int" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'DBONLINETEST.dbo.TestSubCategories' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TestSubCategories">
-          <Property Name="TestCatID" Type="int" />
-          <Property Name="SubjectID" Type="int" />
-        </EntityType>-->
   <Association Name="FK__tblQuiz__CatID__503BEA1C">
     <End Role="tblTestCategories" Type="Self.tblTestCategories" Multiplicity="1" />
     <End Role="tblQuiz" Type="Self.tblQuiz" Multiplicity="*" />
@@ -288,6 +276,9 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     <Parameter Name="SecretQuestion" Type="varchar(max)" Mode="In" />
     <Parameter Name="SecretAnswer" Type="varchar" Mode="In" />
     <Parameter Name="Role" Type="int" Mode="In" />
+  </Function>
+  <Function Name="approveUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
   </Function>
   <Function Name="assignQuizToAgent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="QuizId" Type="int" Mode="In" />
@@ -368,6 +359,10 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     <Parameter Name="uid" Type="int" Mode="In" />
     <Parameter Name="qid" Type="int" Mode="In" />
   </Function>
+  <Function Name="GetGraph" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="QuizID" Type="int" Mode="In" />
+  </Function>
   <Function Name="getQuestionList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetQuizData_Agent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
@@ -396,6 +391,7 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="getSubjectsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="getTestCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="getUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getUsersforApproval" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="InsertAnswers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
     <Parameter Name="QuizID" Type="int" Mode="In" />

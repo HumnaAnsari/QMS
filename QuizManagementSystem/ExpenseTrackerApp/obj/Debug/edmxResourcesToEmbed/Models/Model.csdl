@@ -392,6 +392,14 @@
       <Parameter Name="roleid" Mode="In" Type="Int32" />
       <Parameter Name="userid" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="GetGraph" ReturnType="Collection(DBONLINETESTModel.GetGraph_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="QuizID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getUsersforApproval" ReturnType="Collection(DBONLINETESTModel.getUsersforApproval_Result)" />
+    <FunctionImport Name="approveUser">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="getAgentGridData_Result">
     <Property Type="Int32" Name="QuizID" Nullable="false" />
@@ -523,5 +531,23 @@
     <Property Type="String" Name="ControllerName" Nullable="true" MaxLength="50" />
     <Property Type="Decimal" Name="Marks" Nullable="true" Precision="5" Scale="2" />
     <Property Type="String" Name="TestCompleteDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="GetGraph_Result">
+    <Property Type="String" Name="SubjectName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="TotalQuestions" Nullable="true" />
+    <Property Type="Int32" Name="CorrectAnswers" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getUsersforApproval_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SecurityQuestion" Nullable="false" />
+    <Property Type="String" Name="SecurityAnswer" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="isActive" Nullable="true" />
   </ComplexType>
 </Schema>

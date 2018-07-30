@@ -591,5 +591,32 @@ namespace ExpenseTrackerApp.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<viewReport_Result>("viewReport", roleidParameter, useridParameter);
         }
+    
+        public virtual ObjectResult<GetGraph_Result> GetGraph(Nullable<int> userID, Nullable<int> quizID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var quizIDParameter = quizID.HasValue ?
+                new ObjectParameter("QuizID", quizID) :
+                new ObjectParameter("QuizID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetGraph_Result>("GetGraph", userIDParameter, quizIDParameter);
+        }
+    
+        public virtual ObjectResult<getUsersforApproval_Result> getUsersforApproval()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getUsersforApproval_Result>("getUsersforApproval");
+        }
+    
+        public virtual int approveUser(Nullable<int> userId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("approveUser", userIdParameter);
+        }
     }
 }

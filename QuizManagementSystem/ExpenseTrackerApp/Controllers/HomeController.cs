@@ -17,7 +17,10 @@ namespace ExpenseTrackerApp.Controllers
         {
             return View();
         }
-
+        public ActionResult ApproveUsers()
+        {
+            return View();
+        }
         public ActionResult AgentView()
         {
             return View();
@@ -51,6 +54,27 @@ namespace ExpenseTrackerApp.Controllers
         {
             return View();
         }
+
+        public JsonResult Graph(int uid, int qid)
+        {
+            try
+            {
+
+                List<GetGraph_Result> obj = new List<GetGraph_Result>();
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    obj = db.GetGraph(uid, qid).ToList();
+                    return Json(obj, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch(Exception e)
+            {
+                throw;
+            }
+
+            
+        }
+
         public ActionResult AddUser(AddUserModel model)
         {
             try
@@ -191,6 +215,46 @@ namespace ExpenseTrackerApp.Controllers
 
             return null;
 
+        }
+        
+        public ActionResult ListUsersforApproval()
+        {
+            try
+            {
+                List<getUsersforApproval_Result> data = new List<getUsersforApproval_Result>();
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    data = db.getUsersforApproval().ToList();
+                }
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                // logger.Error(ex);
+            }
+
+            return null;
+
+        }
+
+        public ActionResult Approve(int UserId)
+        {
+            try
+            {
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    var data = db.approveUser(UserId);
+                    return Json(data, JsonRequestBehavior.AllowGet);
+                }
+
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
         }
 
         public ActionResult ListUsers()

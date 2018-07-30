@@ -217,6 +217,9 @@
     <Compile Include="Models\GetCompleteResults_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetGraph_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\getQuestionList_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -251,6 +254,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getUserDetails_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getUsersforApproval_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JsonpResult.cs" />
@@ -1213,6 +1219,7 @@
     <Content Include="Views\Home\CreateSubjects.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
+    <Content Include="Views\Home\ApproveUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

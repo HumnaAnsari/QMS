@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBONLINETESTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBONLINETESTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -216,18 +216,6 @@ warning 6002: The table/view 'DBONLINETEST.dbo.tblUserRoles' does not have a pri
           <Property Name="roleid" Type="int" Nullable="false" />
           <Property Name="isActive" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'DBONLINETEST.dbo.TestSettingCategories' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TestSettingCategories">
-          <Property Name="TestID" Type="int" />
-          <Property Name="SubjectID" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'DBONLINETEST.dbo.TestSubCategories' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TestSubCategories">
-          <Property Name="TestCatID" Type="int" />
-          <Property Name="SubjectID" Type="int" />
-        </EntityType>-->
         <Association Name="FK__tblQuiz__CatID__503BEA1C">
           <End Role="tblTestCategories" Type="Self.tblTestCategories" Multiplicity="1" />
           <End Role="tblQuiz" Type="Self.tblQuiz" Multiplicity="*" />
@@ -293,6 +281,9 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
           <Parameter Name="SecretQuestion" Type="varchar(max)" Mode="In" />
           <Parameter Name="SecretAnswer" Type="varchar" Mode="In" />
           <Parameter Name="Role" Type="int" Mode="In" />
+        </Function>
+        <Function Name="approveUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
         </Function>
         <Function Name="assignQuizToAgent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="QuizId" Type="int" Mode="In" />
@@ -373,6 +364,10 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
           <Parameter Name="uid" Type="int" Mode="In" />
           <Parameter Name="qid" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetGraph" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="QuizID" Type="int" Mode="In" />
+        </Function>
         <Function Name="getQuestionList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetQuizData_Agent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserId" Type="int" Mode="In" />
@@ -401,6 +396,7 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
         <Function Name="getSubjectsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="getTestCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="getUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getUsersforApproval" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="InsertAnswers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserId" Type="int" Mode="In" />
           <Parameter Name="QuizID" Type="int" Mode="In" />
@@ -472,8 +468,7 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
             <End Role="tblQuiz" EntitySet="tblQuiz" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBONLINETESTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -768,19 +763,19 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
             <Parameter Name="Agents" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="convertToTable" ReturnType="Collection(String)">
-            <Parameter Name="InputValue" Mode="In" Type="String" />
+          <Parameter Name="InputValue" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="deleteQuestion">
-            <Parameter Name="QId" Mode="In" Type="Int32" />
+          <Parameter Name="QId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteQuiz">
-            <Parameter Name="QuizId" Mode="In" Type="Int32" />
+          <Parameter Name="QuizId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteSubject">
-            <Parameter Name="SId" Mode="In" Type="Int32" />
+          <Parameter Name="SId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="deleteUser">
-            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          <Parameter Name="UserId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="editQuestion">
             <Parameter Name="QuestionType" Mode="In" Type="String" />
@@ -821,7 +816,7 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
             <Parameter Name="Role" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="getAgentGridData" ReturnType="Collection(DBONLINETESTModel.getAgentGridData_Result)">
-            <Parameter Name="uid" Mode="In" Type="Int32" />
+          <Parameter Name="uid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getAgents" ReturnType="Collection(DBONLINETESTModel.getAgents_Result)" />
           <FunctionImport Name="GetCompleteResults" ReturnType="Collection(DBONLINETESTModel.GetCompleteResults_Result)">
@@ -830,7 +825,7 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
           </FunctionImport>
           <FunctionImport Name="getQuestionList" ReturnType="Collection(DBONLINETESTModel.getQuestionList_Result)" />
           <FunctionImport Name="GetQuizData_Agent" ReturnType="Collection(DBONLINETESTModel.GetQuizData_Agent_Result)">
-            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          <Parameter Name="UserId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getQuizList" ReturnType="Collection(DBONLINETESTModel.getQuizList_Result)" />
           <FunctionImport Name="GetQuizQuestions" ReturnType="Collection(DBONLINETESTModel.GetQuizQuestions_Result)">
@@ -848,7 +843,7 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
           <FunctionImport Name="getRoles" ReturnType="Collection(DBONLINETESTModel.getRoles_Result)" />
           <FunctionImport Name="getSecretQuestions" ReturnType="Collection(DBONLINETESTModel.getSecretQuestions_Result)" />
           <FunctionImport Name="getSubjects" ReturnType="Collection(DBONLINETESTModel.getSubjects_Result)">
-            <Parameter Name="catid" Mode="In" Type="Int32" />
+          <Parameter Name="catid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getSubjectsList" ReturnType="Collection(DBONLINETESTModel.getSubjectsList_Result)" />
           <FunctionImport Name="getTestCategories" ReturnType="Collection(DBONLINETESTModel.getTestCategories_Result)" />
@@ -868,6 +863,14 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
           <FunctionImport Name="viewReport" ReturnType="Collection(DBONLINETESTModel.viewReport_Result)">
             <Parameter Name="roleid" Mode="In" Type="Int32" />
             <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetGraph" ReturnType="Collection(DBONLINETESTModel.GetGraph_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="QuizID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getUsersforApproval" ReturnType="Collection(DBONLINETESTModel.getUsersforApproval_Result)" />
+          <FunctionImport Name="approveUser">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="getAgentGridData_Result">
@@ -1000,6 +1003,24 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
           <Property Type="String" Name="ControllerName" Nullable="true" MaxLength="50" />
           <Property Type="Decimal" Name="Marks" Nullable="true" Precision="5" Scale="2" />
           <Property Type="String" Name="TestCompleteDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="GetGraph_Result">
+          <Property Type="String" Name="SubjectName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="TotalQuestions" Nullable="true" />
+          <Property Type="Int32" Name="CorrectAnswers" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getUsersforApproval_Result">
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="SecurityQuestion" Nullable="false" />
+          <Property Type="String" Name="SecurityAnswer" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="isActive" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1434,6 +1455,33 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetGraph" FunctionName="DBONLINETESTModel.Store.GetGraph">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBONLINETESTModel.GetGraph_Result">
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="TotalQuestions" ColumnName="TotalQuestions" />
+                <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getUsersforApproval" FunctionName="DBONLINETESTModel.Store.getUsersforApproval">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBONLINETESTModel.getUsersforApproval_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityQuestion" ColumnName="SecurityQuestion" />
+                <ScalarProperty Name="SecurityAnswer" ColumnName="SecurityAnswer" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="approveUser" FunctionName="DBONLINETESTModel.Store.approveUser" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
