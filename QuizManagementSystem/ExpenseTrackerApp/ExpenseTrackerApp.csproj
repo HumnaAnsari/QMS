@@ -205,135 +205,135 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL.cs" />
-    <Compile Include="Models\DBONLINETESTEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBONLINETESTEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBONLINETESTEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DBONLINETESTEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBONLINETESTEntities.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Employee.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getAgentGridData_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getAgents_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetCompleteResults_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetGraph_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getQuestionList_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetQuizData_Agent_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getQuizList_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetQuizQuestions_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetResultsGrid_Data_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetResults_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getRoles_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getSecretQuestions_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getSubjectsList_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getSubjects_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getTestCategories_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getUserDetails_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\getUsersforApproval_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JsonpResult.cs" />
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\T1.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblAdminDetail.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblAssignExam_ToAgent.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblCategoryMapping.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblQuestion.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblQuestionType.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblQuiz.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblResult.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSecretQuestion.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSubject.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblTestCategory.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblTestSetting.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUser.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUserAnswer.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUserAnswers_Latest.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUserDetail.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUserForm.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUserPermission.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUserRole.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\viewReport_Result.cs">
-      <DependentUpon>DBONLINETESTEntities.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -786,15 +786,15 @@
     <Content Include="Kendo\styles\Uniform\sprite_2x.png" />
     <Content Include="Kendo\styles\Uniform\sprite_kpi.png" />
     <Content Include="Kendo\styles\Uniform\sprite_kpi_2x.png" />
-    <Content Include="Models\DBONLINETESTEntities.Context.tt">
+    <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBONLINETESTEntities.edmx</DependentUpon>
-      <LastGenOutput>DBONLINETESTEntities.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBONLINETESTEntities.tt">
+    <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBONLINETESTEntities.edmx</DependentUpon>
-      <LastGenOutput>DBONLINETESTEntities.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -1058,12 +1058,12 @@
     <Content Include="Kendo\styles\kendo.uniform.min.css.map" />
     <Content Include="Kendo\styles\kendo.uniform.mobile.min.css.map" />
     <Content Include="ClassDiagram1.cd" />
-    <EntityDeploy Include="Models\DBONLINETESTEntities.edmx">
+    <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBONLINETESTEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DBONLINETESTEntities.edmx.diagram">
-      <DependentUpon>DBONLINETESTEntities.edmx</DependentUpon>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap2-toggle.min.js" />

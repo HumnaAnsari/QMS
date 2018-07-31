@@ -191,7 +191,12 @@
             }
         }
         else{
-            alert('please select answer first');
+            new PNotify({
+                title: 'Error',
+                text: 'Please select answer first.',
+                type: 'error'
+            });
+
         }
     }
     function Submit(id)
@@ -255,7 +260,12 @@
         }
         else
         {
-            alert('please select answer first');
+            //alert('please select answer first');
+            new PNotify({
+                title: 'Error',
+                text: 'Please select answer first.',
+                type: 'error'
+            });
         }
     }
     // Set the date we're counting down to
@@ -289,7 +299,12 @@
         if (distance < 0) {
             clearInterval(x);
             document.getElementById("demo").innerHTML = "TIME OUT";
-            alert('Time out - Please retry');
+            //alert('Time out - Please retry');
+            new PNotify({
+                title: 'Error',
+                text: 'Time out - Please retry',
+                type: 'error'
+            });
             timeout();
         }
     }, 1000);

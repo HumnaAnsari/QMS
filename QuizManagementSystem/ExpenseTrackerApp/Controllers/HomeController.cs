@@ -636,10 +636,10 @@ namespace ExpenseTrackerApp.Controllers
             {
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
-                    db.UpdateTimoutStatus(profileData.User_ID, AssignID);
+                    //var  result =   db.UpdateTimoutStatus(profileData.User_ID, AssignID).FirstOrDefault();
+                    int? j = db.UpdateTimoutStatus(profileData.User_ID, AssignID).First();
+                    return Json(j, JsonRequestBehavior.AllowGet);
                 }
-
-                return Json(result, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
