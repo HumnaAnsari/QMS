@@ -17,6 +17,12 @@ namespace ExpenseTrackerApp.Models
             public int RoleId { get; set; }
 
         }
+        public class ReportModel
+        {
+            public int uid { get; set; }
+            public int qid { get; set; }
+            public int aid { get; set; }
+        }
         public class result_obj
         {
             public int questionid { get; set; }

@@ -214,6 +214,9 @@
     <Compile Include="Models\getAgents_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\getAssignedData_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetCompleteResults_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -274,9 +277,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\T1.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblAdminDetail.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -1223,6 +1223,8 @@
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\ApproveUsers.cshtml" />
+    <Content Include="Views\Home\Assign.cshtml" />
+    <Content Include="Views\Home\FullResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

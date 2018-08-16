@@ -31,9 +31,9 @@
 
 
     $("#gridReport").kendoGrid({
-        
+
         dataSource: dataSource,
-      
+
         scrollable: true,
         sortable: true,
         pageable: true,
@@ -54,6 +54,15 @@
             field: "UserName",
             title: "UserName",
             width:100,
+
+        },
+        {
+            field: "quizid",
+            hidden: true
+        }, {
+            field: "QuizName",
+            title: "QuizName",
+            width: 100,
 
         },
         {
@@ -80,7 +89,7 @@
             width: 50,
 
         },
-        
+
         {
             field: "Marks",
             title: "Marks",
@@ -92,6 +101,32 @@
                 title: "TestCompleteDate",
                 width: 50,
 
+            }, {
+                command: [
+                
+                {
+                    name: "View Full Report", text: "View Full Report", click: function (e) {
+
+                        e.preventDefault(); //prevent page scroll reset
+
+                        var tr = $(e.target).closest("tr"); //get the row for deletion
+                        var data = this.dataItem(tr); //get the row data so it can be referred later
+
+                        
+                            var Reportmodel = {
+                                "UserId": data.userid,
+                                "QuizId": data.quizid
+                            }
+                        //$("#loader").show();
+                            debugger;
+                           var url=  "/Home/FullResult?uid=" + data.userid + "&qid=" + data.quizid + "&aid=" + data.AssignID;
+                        //  
+                            //var url ="@Url.Action("FullResult","Home",new { uid = "UID", qid = "QID", aid = "AID"})".replace("UID", data.userid).replace("QID", data.quizid).replace("AID", data.AssignID);
+                        window.location.href = url;
+                        
+                    }
+                }
+                ], title: "Action", width: "118px"
             }]
     });
 </script>

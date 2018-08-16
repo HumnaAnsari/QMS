@@ -1,59 +1,8 @@
-2018-07-30 13:31:28,944 [11] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:31:29,355 [11] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:31:29,357 [11] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:31:43,731 [5] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:31:43,739 [5] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:31:43,740 [5] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:32:56,565 [13] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:32:56,574 [13] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:32:56,575 [13] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:33:38,044 [14] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:33:38,052 [14] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 13:33:38,055 [14] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 15:37:56,944 [17] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 15:37:57,302 [17] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 15:37:57,304 [17] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 15:41:02,385 [14] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 15:41:02,393 [14] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 15:41:02,394 [14] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 16:38:32,077 [11] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 16:38:32,464 [11] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 16:38:32,468 [11] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 16:53:50,180 [30] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 16:53:50,187 [30] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 16:53:50,189 [30] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 16:56:21,110 [20] [INFO] UserID:teacher ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 16:56:21,114 [20] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 16:56:21,115 [20] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:04:06,654 [56] [INFO] UserID:teacher ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:04:06,659 [56] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:04:06,660 [56] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:41:47,154 [12] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:41:48,380 [12] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:41:48,409 [12] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:45:49,119 [20] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:45:49,124 [20] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:45:49,124 [20] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:47:21,269 [17] [INFO] UserID:teacher ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:47:21,275 [17] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:47:21,276 [17] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:48:10,828 [27] [INFO] UserID:teacher ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:48:10,835 [27] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:48:10,835 [27] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:49:12,226 [27] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:49:12,235 [27] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:49:12,235 [27] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:49:22,530 [29] [INFO] UserID:teacher ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:49:22,536 [29] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:49:22,536 [29] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:52:41,901 [44] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:52:41,905 [44] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 17:52:41,905 [44] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:12:07,955 [10] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:12:08,378 [10] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:12:08,379 [10] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:12:20,163 [10] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
-System.ArgumentException: The parameters dictionary contains a null entry for parameter 'AssignID' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult GetQuizQuestions(Int32, Int32, Int32, Int32)' in 'ExpenseTrackerApp.Controllers.HomeController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+2018-08-16 12:52:28,135 [8] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 12:52:29,431 [8] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 12:52:29,467 [8] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 12:53:08,727 [6] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.ArgumentException: The parameters dictionary contains a null entry for parameter 'qid' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.JsonResult Graph(Int32, Int32, Int32)' in 'ExpenseTrackerApp.Controllers.HomeController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
 Parameter name: parameters
    at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
    at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
@@ -88,43 +37,11 @@ Parameter name: parameters
    at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
    at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
-2018-07-30 18:12:26,248 [10] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:12:26,251 [10] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:12:26,252 [10] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:15:09,225 [5] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:15:09,652 [5] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:15:09,655 [5] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:32:00,019 [6] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:32:00,390 [6] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:32:00,393 [6] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:32:17,132 [12] [INFO] UserID:Admin ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:32:17,136 [12] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:32:17,137 [12] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:32:38,648 [12] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:32:38,654 [12] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 18:32:38,655 [12] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:37:56,617 [6] [INFO] UserID:teacher ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:37:57,182 [6] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:37:57,183 [6] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:42:57,271 [25] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
-System.Data.Entity.Core.EntityCommandExecutionException: The data reader returned by the store data provider does not have enough columns for the query requested.
-   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ConstantColumnMapGenerator.System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
-   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.CreateColumnMap(DbDataReader storeDataReader, Int32 resultSetIndex)
-   at System.Data.Entity.Core.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyCollection`1 entitySets, EdmType[] edmTypes, ShaperFactory`1 shaperFactory, MergeOption mergeOption, Boolean streaming)
-   at System.Data.Entity.Core.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyCollection`1 entitySets, EdmType[] edmTypes, ExecutionOptions executionOptions)
-   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass47`1.<ExecuteFunction>b__46()
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass47`1.<ExecuteFunction>b__45()
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ExecutionOptions executionOptions, ObjectParameter[] parameters)
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
-   at ExpenseTrackerApp.Models.DBONLINETESTEntities.UpdateTimoutStatus(Nullable`1 userID, Nullable`1 assignID) in E:\MYGITHUB\QMS\QuizManagementSystem\ExpenseTrackerApp\Models\Model.Context.cs:line 636
-   at ExpenseTrackerApp.Controllers.HomeController.UpdateTimoutStatus(Int32 AssignID) in E:\MYGITHUB\QMS\QuizManagementSystem\ExpenseTrackerApp\Controllers\HomeController.cs:line 647
-   at lambda_method(Closure , ControllerBase , Object[] )
-   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+2018-08-16 12:53:08,773 [8] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.ArgumentException: The parameters dictionary contains a null entry for parameter 'qid' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult GetCompleteResult(Int32, Int32, Int32)' in 'ExpenseTrackerApp.Controllers.HomeController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
    at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
    at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
@@ -158,29 +75,13 @@ System.Data.Entity.Core.EntityCommandExecutionException: The data reader returne
    at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
-2018-07-30 20:46:02,113 [33] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:46:02,123 [33] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:46:02,125 [33] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:46:16,799 [33] [INFO] UserID:teacher ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:46:16,814 [33] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:46:16,815 [33] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:51:09,986 [33] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
-System.Data.Entity.Core.EntityCommandExecutionException: The data reader returned by the store data provider does not have enough columns for the query requested.
-   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ConstantColumnMapGenerator.System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
-   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.CreateColumnMap(DbDataReader storeDataReader, Int32 resultSetIndex)
-   at System.Data.Entity.Core.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyCollection`1 entitySets, EdmType[] edmTypes, ShaperFactory`1 shaperFactory, MergeOption mergeOption, Boolean streaming)
-   at System.Data.Entity.Core.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyCollection`1 entitySets, EdmType[] edmTypes, ExecutionOptions executionOptions)
-   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass47`1.<ExecuteFunction>b__46()
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass47`1.<ExecuteFunction>b__45()
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ExecutionOptions executionOptions, ObjectParameter[] parameters)
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
-   at ExpenseTrackerApp.Models.DBONLINETESTEntities.UpdateTimoutStatus(Nullable`1 userID, Nullable`1 assignID) in E:\MYGITHUB\QMS\QuizManagementSystem\ExpenseTrackerApp\Models\Model.Context.cs:line 636
-   at ExpenseTrackerApp.Controllers.HomeController.UpdateTimoutStatus(Int32 AssignID) in E:\MYGITHUB\QMS\QuizManagementSystem\ExpenseTrackerApp\Controllers\HomeController.cs:line 647
-   at lambda_method(Closure , ControllerBase , Object[] )
-   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+2018-08-16 13:28:17,505 [9] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:28:17,945 [9] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:28:17,946 [9] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:33:45,097 [23] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.ArgumentException: The parameters dictionary contains a null entry for parameter 'qid' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult FullResult(Int32, Int32, Int32)' in 'ExpenseTrackerApp.Controllers.HomeController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
    at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
    at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
@@ -214,29 +115,13 @@ System.Data.Entity.Core.EntityCommandExecutionException: The data reader returne
    at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
-2018-07-30 20:51:16,356 [37] [INFO] UserID:teacher ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:51:16,375 [37] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:51:16,375 [37] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:54:19,915 [8] [INFO] UserID:agent ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:54:20,305 [8] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 20:54:20,307 [8] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:09:21,390 [15] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
-System.Data.Entity.Core.EntityCommandExecutionException: The data reader returned by the store data provider does not have enough columns for the query requested.
-   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ConstantColumnMapGenerator.System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
-   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.CreateColumnMap(DbDataReader storeDataReader, Int32 resultSetIndex)
-   at System.Data.Entity.Core.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyCollection`1 entitySets, EdmType[] edmTypes, ShaperFactory`1 shaperFactory, MergeOption mergeOption, Boolean streaming)
-   at System.Data.Entity.Core.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyCollection`1 entitySets, EdmType[] edmTypes, ExecutionOptions executionOptions)
-   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass47`1.<ExecuteFunction>b__46()
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass47`1.<ExecuteFunction>b__45()
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ExecutionOptions executionOptions, ObjectParameter[] parameters)
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
-   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
-   at ExpenseTrackerApp.Models.DBONLINETESTEntities.UpdateTimoutStatus(Nullable`1 userID, Nullable`1 assignID) in E:\MYGITHUB\QMS\QuizManagementSystem\ExpenseTrackerApp\Models\Model.Context.cs:line 636
-   at ExpenseTrackerApp.Controllers.HomeController.UpdateTimoutStatus(Int32 AssignID) in E:\MYGITHUB\QMS\QuizManagementSystem\ExpenseTrackerApp\Controllers\HomeController.cs:line 647
-   at lambda_method(Closure , ControllerBase , Object[] )
-   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+2018-08-16 13:36:53,877 [37] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:36:53,887 [37] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:36:53,888 [37] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:38:29,421 [35] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.ArgumentException: The parameters dictionary contains a null entry for parameter 'qid' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult FullResult(Int32, Int32, Int32)' in 'ExpenseTrackerApp.Controllers.HomeController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
    at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
    at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
@@ -270,9 +155,302 @@ System.Data.Entity.Core.EntityCommandExecutionException: The data reader returne
    at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
-2018-07-30 21:29:08,251 [13] [INFO] UserID:hansari ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:29:08,639 [13] [DEBUG] Error In Login Method User List Is Null.  ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:29:08,657 [10] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+2018-08-16 13:38:54,745 [33] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:38:54,825 [33] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:38:54,825 [33] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:39:52,534 [31] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.ArgumentException: The parameters dictionary contains a null entry for parameter 'qid' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult FullResult(Int32, Int32, Int32)' in 'ExpenseTrackerApp.Controllers.HomeController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 13:43:44,031 [23] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.ArgumentException: The parameters dictionary contains a null entry for parameter 'qid' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult FullResult(Int32, Int32, Int32)' in 'ExpenseTrackerApp.Controllers.HomeController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 13:45:06,975 [35] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:45:06,981 [35] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:45:06,981 [35] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 13:45:28,856 [29] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.Web.HttpException (0x80004005): A public action method 'Home' was not found on controller 'ExpenseTrackerApp.Controllers.HomeController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 16:45:10,109 [8] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:45:23,418 [8] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:45:23,565 [8] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:45:52,684 [5] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.Web.HttpException (0x80004005): A public action method 'Home' was not found on controller 'ExpenseTrackerApp.Controllers.HomeController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 16:47:09,014 [10] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:47:09,573 [10] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:47:09,575 [10] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:47:17,158 [7] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.Web.HttpException (0x80004005): A public action method 'Home' was not found on controller 'ExpenseTrackerApp.Controllers.HomeController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 16:48:14,688 [10] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:48:14,700 [10] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:48:14,701 [10] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:51:35,283 [10] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ASP._Page_Views_Home_Report_cshtml.Execute() in E:\MYGITHUB\QMS\QuizManagementSystem\ExpenseTrackerApp\Views\Home\Report.cshtml:line 4
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 16:51:41,248 [8] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:51:41,624 [8] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:51:41,626 [8] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:56:48,327 [5] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:56:48,909 [5] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:56:48,911 [5] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 16:57:01,639 [5] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.Web.HttpException (0x80004005): A public action method 'Home' was not found on controller 'ExpenseTrackerApp.Controllers.HomeController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 17:00:17,337 [12] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:00:17,877 [12] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:00:17,878 [12] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:00:29,192 [11] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.Web.HttpException (0x80004005): A public action method 'Home' was not found on controller 'ExpenseTrackerApp.Controllers.HomeController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 17:03:30,381 [8] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ASP._Page_Views_Home_Report_cshtml.Execute() in E:\MYGITHUB\QMS\QuizManagementSystem\ExpenseTrackerApp\Views\Home\Report.cshtml:line 4
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 17:03:35,410 [10] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:03:35,825 [10] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:03:35,826 [10] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:12:03,146 [5] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:12:03,594 [5] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:12:03,597 [5] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:12:13,836 [7] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
+System.Web.HttpException (0x80004005): A public action method 'Home' was not found on controller 'ExpenseTrackerApp.Controllers.HomeController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-16 17:17:25,182 [18] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:17:25,189 [18] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:17:25,189 [18] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:23:19,358 [44] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:23:19,377 [44] [DEBUG] Error In Login Method User List Is Null.  ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:23:19,388 [43] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
 System.Web.HttpException (0x80004005): A public action method 'Access Denied' was not found on controller 'ExpenseTrackerApp.Controllers.AccountController'.
    at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
    at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
@@ -291,30 +469,9 @@ System.Web.HttpException (0x80004005): A public action method 'Access Denied' wa
    at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
-2018-07-30 21:29:12,482 [14] [INFO] UserID:hansari10 ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:29:12,502 [14] [DEBUG] Error In Login Method User List Is Null.  ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:29:12,523 [7] [ERROR] Application_Error ExpenseTrackerApp.MvcApplication
-System.Web.HttpException (0x80004005): A public action method 'Access Denied' was not found on controller 'ExpenseTrackerApp.Controllers.AccountController'.
-   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
-   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
-   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
-   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
-   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
-   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
-   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
-   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
-   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
-   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
-   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
-   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
-   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
-   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
-   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
-2018-07-30 21:29:22,468 [13] [INFO] UserID:faisal ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:29:22,499 [13] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:29:22,502 [13] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:57:01,415 [12] [INFO] UserID:faisal ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:57:01,818 [12] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
-2018-07-30 21:57:01,820 [12] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:23:36,120 [44] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:23:36,139 [44] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:23:36,141 [44] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:29:23,434 [65] [INFO] UserID:admin ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:29:23,442 [65] [DEBUG] Session Create ExpenseTrackerApp.Controllers.AccountController
+2018-08-16 17:29:23,443 [65] [DEBUG] Redirect to View Based On Role ExpenseTrackerApp.Controllers.AccountController

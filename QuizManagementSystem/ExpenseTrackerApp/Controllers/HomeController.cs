@@ -54,7 +54,10 @@ namespace ExpenseTrackerApp.Controllers
         {
             return View();
         }
-
+        public ActionResult Assign()
+        {
+            return View();
+        }
         public JsonResult Graph(int uid, int qid, int AssignID)
         {
             try
@@ -130,6 +133,15 @@ namespace ExpenseTrackerApp.Controllers
         {
             return View();
         }
+
+        public ActionResult FullResult(int uid, int qid, int aid)
+        {
+            ViewBag.AssignID = Convert.ToInt32(aid.ToString());
+            ViewBag.UserID = Convert.ToInt32(uid.ToString());
+            ViewBag.QuizID = Convert.ToInt32(qid.ToString());
+            return View();
+        }
+
         public ActionResult LeftPanel()
         {
             return PartialView("~/Views/Shared/_LeftPanel.cshtml");
@@ -147,6 +159,45 @@ namespace ExpenseTrackerApp.Controllers
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {
                     var data = db.deleteUser(UserId);
+                    return Json(data, JsonRequestBehavior.AllowGet);
+                }
+
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
+        }
+
+
+        public ActionResult DeleteAssign(int AssignID)
+        {
+            try
+            {
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    var data = db.deleteAssignedQuiz(AssignID);
+                    return Json(data, JsonRequestBehavior.AllowGet);
+                }
+
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
+        }
+
+        public ActionResult EditAssign(string ExpireDate, int AssignID)
+        {
+            try
+            {
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    var data = db.editAssignedQuiz(ExpireDate,AssignID);
                     return Json(data, JsonRequestBehavior.AllowGet);
                 }
 
@@ -532,6 +583,29 @@ namespace ExpenseTrackerApp.Controllers
 
         }
 
+
+        public ActionResult GetAssignedData(int roleid, int userid)
+        {
+            try
+            {
+                List<getAssignedData_Result> list = new List<getAssignedData_Result>();
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    list = db.getAssignedData(roleid, userid).ToList();
+                }
+
+                return Json(list, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                // logger.Error(ex);
+            }
+
+            return null;
+
+        }
+
+
         public ActionResult DeleteSubject(int SId)
         {
             try
@@ -612,6 +686,7 @@ namespace ExpenseTrackerApp.Controllers
         {
             try
             {
+                
                 List<GetQuizData_Agent_Result> data = new List<GetQuizData_Agent_Result>();
                 using (DBONLINETESTEntities db = new DBONLINETESTEntities())
                 {

@@ -224,18 +224,6 @@ warning 6013: The table/view 'DBONLINETEST.dbo.TestSubCategories' does not have 
           <Property Name="TestCatID" Type="int" />
           <Property Name="SubjectID" Type="int" />
         </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DBONLINETEST.dbo.T1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="T1">
-    <Key>
-      <PropertyRef Name="FirstName" />
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="PermissionId" Type="int" />
-    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="FormName" Type="varchar" MaxLength="50" />
-    <Property Name="UserId" Type="int" Nullable="false" />
-  </EntityType>
   <Association Name="FK__tblQuiz__CatID__503BEA1C">
     <End Role="tblTestCategories" Type="Self.tblTestCategories" Multiplicity="1" />
     <End Role="tblQuiz" Type="Self.tblQuiz" Multiplicity="*" />
@@ -317,6 +305,9 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="convertToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="InputValue" Type="varchar(max)" Mode="In" />
   </Function>
+  <Function Name="deleteAssignedQuiz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AssignID" Type="int" Mode="In" />
+  </Function>
   <Function Name="deleteQuestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="QId" Type="int" Mode="In" />
   </Function>
@@ -328,6 +319,10 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   </Function>
   <Function Name="deleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="editAssignedQuiz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExpireDate" Type="varchar" Mode="In" />
+    <Parameter Name="AssignID" Type="int" Mode="In" />
   </Function>
   <Function Name="editQuestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="QuestionType" Type="varchar" Mode="In" />
@@ -373,6 +368,10 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="getAgents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="getAgentTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
     <Parameter Name="subjectId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getAssignedData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
   </Function>
   <Function Name="getCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
     <Parameter Name="QuizId" Type="int" Mode="In" />
@@ -491,14 +490,6 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     [tblUserRoles].[RoleID] AS [RoleID], 
     [tblUserRoles].[RoleName] AS [RoleName]
     FROM [dbo].[tblUserRoles] AS [tblUserRoles]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="T1" EntityType="Self.T1" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [T1].[PermissionId] AS [PermissionId], 
-    [T1].[FirstName] AS [FirstName], 
-    [T1].[FormName] AS [FormName], 
-    [T1].[UserId] AS [UserId]
-    FROM [dbo].[T1] AS [T1]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__tblQuiz__CatID__503BEA1C" Association="Self.FK__tblQuiz__CatID__503BEA1C">
       <End Role="tblTestCategories" EntitySet="tblTestCategories" />
