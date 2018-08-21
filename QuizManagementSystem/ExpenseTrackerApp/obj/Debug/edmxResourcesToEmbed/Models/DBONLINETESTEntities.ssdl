@@ -317,6 +317,9 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="convertToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="InputValue" Type="varchar(max)" Mode="In" />
   </Function>
+  <Function Name="deleteAssignedQuiz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AssignID" Type="int" Mode="In" />
+  </Function>
   <Function Name="deleteQuestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="QId" Type="int" Mode="In" />
   </Function>
@@ -328,6 +331,10 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   </Function>
   <Function Name="deleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="editAssignedQuiz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExpireDate" Type="varchar" Mode="In" />
+    <Parameter Name="AssignID" Type="int" Mode="In" />
   </Function>
   <Function Name="editQuestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="QuestionType" Type="varchar" Mode="In" />
@@ -374,6 +381,10 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="getAgentTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
     <Parameter Name="subjectId" Type="int" Mode="In" />
   </Function>
+  <Function Name="getAssignedData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
   <Function Name="getCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
     <Parameter Name="QuizId" Type="int" Mode="In" />
   </Function>
@@ -390,6 +401,9 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     <Parameter Name="AssignID" Type="int" Mode="In" />
   </Function>
   <Function Name="getQuestionList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetQuestionsFromSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="questionvalue" Type="varchar(max)" Mode="In" />
+  </Function>
   <Function Name="GetQuizData_Agent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
   </Function>

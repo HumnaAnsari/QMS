@@ -19,6 +19,7 @@ namespace ExpenseTrackerApp.Models
         public int TimeAllocated { get; set; }
         public int PassingScore { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
+        public int TestCatID { get; set; }
         public string TestCatName { get; set; }
         public string Subjects { get; set; }
         public string SubjectIds { get; set; }

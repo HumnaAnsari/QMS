@@ -308,6 +308,9 @@
     <FunctionImport Name="convertToTable" ReturnType="Collection(String)">
       <Parameter Name="InputValue" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="deleteAssignedQuiz">
+      <Parameter Name="AssignID" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="deleteQuestion">
       <Parameter Name="QId" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -319,6 +322,10 @@
     </FunctionImport>
     <FunctionImport Name="deleteUser">
       <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="editAssignedQuiz">
+      <Parameter Name="ExpireDate" Mode="In" Type="String" />
+      <Parameter Name="AssignID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="editQuestion">
       <Parameter Name="QuestionType" Mode="In" Type="String" />
@@ -362,6 +369,10 @@
       <Parameter Name="uid" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="getAgents" ReturnType="Collection(DBONLINETESTModel.getAgents_Result)" />
+    <FunctionImport Name="getAssignedData" ReturnType="Collection(DBONLINETESTModel.getAssignedData_Result)">
+      <Parameter Name="roleid" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="GetCompleteResults" ReturnType="Collection(DBONLINETESTModel.GetCompleteResults_Result)">
       <Parameter Name="uid" Mode="In" Type="Int32" />
       <Parameter Name="qid" Mode="In" Type="Int32" />
@@ -372,6 +383,9 @@
       <Parameter Name="AssignID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="getQuestionList" ReturnType="Collection(DBONLINETESTModel.getQuestionList_Result)" />
+    <FunctionImport Name="GetQuestionsFromSubject" ReturnType="Collection(Int32)">
+      <Parameter Name="questionvalue" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="GetQuizData_Agent" ReturnType="Collection(DBONLINETESTModel.GetQuizData_Agent_Result)">
       <Parameter Name="UserId" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -412,7 +426,7 @@
       <Parameter Name="QuizID" Mode="In" Type="Int32" />
       <Parameter Name="UserId" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="UpdateTimoutStatus" ReturnType="Collection(String)">
+    <FunctionImport Name="UpdateTimoutStatus" ReturnType="Collection(Int32)">
       <Parameter Name="UserID" Mode="In" Type="Int32" />
       <Parameter Name="AssignID" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -433,6 +447,16 @@
   <ComplexType Name="getAgents_Result">
     <Property Type="Int32" Name="UserId" Nullable="false" />
     <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getAssignedData_Result">
+    <Property Type="Int32" Name="AssignID" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="QuizName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ExpireDate" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="Controller" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ControllerName" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="GetCompleteResults_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -478,6 +502,7 @@
     <Property Type="Int32" Name="TimeAllocated" Nullable="false" />
     <Property Type="Int32" Name="PassingScore" Nullable="false" />
     <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="TestCatID" Nullable="false" />
     <Property Type="String" Name="TestCatName" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Subjects" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="SubjectIds" Nullable="true" MaxLength="50" />
@@ -564,6 +589,8 @@
     <Property Type="Int32" Name="AssignID" Nullable="true" />
     <Property Type="Int32" Name="userid" Nullable="true" />
     <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="quizid" Nullable="true" />
+    <Property Type="String" Name="QuizName" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="ExpireDate" Nullable="true" MaxLength="10" />
     <Property Type="Int32" Name="Controller" Nullable="true" />
     <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />

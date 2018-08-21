@@ -33,19 +33,10 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <label for="" class="control-label">Total Questions</label>
-                        </div>
-                        <div class="form-group col-md-8">
-                            <input type="number" id="txtNoOfQues" class="form-control" name="Total Questions" required>
-                            <span class="k-invalid-msg" data-for="txtNoOfQues"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-4">
                             <label for="" class="control-label">Test Category</label>
                         </div>
                         <div class="form-group col-md-8">
-                            <input data-message="Please Select Value" name="TestCategories" class="form-control" id="ddlTestCategories" required>
+                            <input data-message="Please Select Value" name="TestCategories" class="form-control" id="ddlTestCategories" onchange="checkSelected(this);" required>
                             <span class="k-invalid-msg" data-for="ddlTestCategories"></span>
                         </div>
                     </div>
@@ -54,8 +45,17 @@
                             <label for="" class="control-label">Questions From</label>
                         </div>
                         <div class="form-group col-md-8">
-                            <input data-message="Please Select Value" name="Questions From" class="form-control" id="ddlQuesFrom">
+                            <input data-message="Please Select Value" name="Questions From" class="form-control" id="ddlQuesFrom" onchange="GetQuestionCount(this);">
                             <span class="k-invalid-msg" data-for="ddlQuesFrom"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="" class="control-label">Total Questions</label>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="number" id="txtNoOfQues" class="form-control" name="Total Questions" required>
+                            <span class="k-invalid-msg" data-for="txtNoOfQues"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -95,6 +95,23 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="form-group col-md-4">
+                            <label for="" class="control-label">Controller</label>
+                        </div>
+                        <div class="form-group col-md-8">
+@if (profileData.User_Role == 1)
+{
+    <input data-message="Please Select Value" name="Controller" class="form-control" id="ddlTeacher">
+                            <span class="k-invalid-msg" data-for="ddlTeacher"></span>
+}
+@if (profileData.User_Role == 2)
+{
+    <input id="txtTeacherId" type="text" value="@profileData.User_ID" disabled />
+                            <span class="k-invalid-msg" data-for="txtTeacherId"></span>
+}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
                             <label for="" class="control-label">Expire Date</label>
                         </div>
                         <div class="form-group col-md-8">
@@ -112,7 +129,7 @@
                         </div>
                     </div>
                     <div>
-                        <input id="txtTeacherId" hidden value="@profileData.User_ID" />
+                        
                         <input id="txtquizId" hidden />
                     </div>
                 </div>
@@ -137,19 +154,10 @@
         </div>
         <div class="row">
             <div class="form-group col-md-4">
-                <label for="" class="control-label">Total Questions</label>
-            </div>
-            <div class="form-group col-md-8">
-                <input type="text" id="etxtNoOfQues" class="form-control" data-bind="value:TotalQuestions" name="Total Questions" required>
-                <span class="k-invalid-msg" data-for="etxtNoOfQues"></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-4">
                 <label for="" class="control-label">Test Category</label>
             </div>
             <div class="form-group col-md-8">
-                <input data-message="Please Select Value" data-bind="value:TestCatName" name="TestCategories" class="form-control" id="eddlTestCategories" required>
+                <input data-message="Please Select Value" data-bind="value:TestCatID" name="TestCategories" class="form-control" id="eddlTestCategories" required>
                 <span class="k-invalid-msg" data-for="eddlTestCategories"></span>
             </div>
         </div>
@@ -158,8 +166,17 @@
                 <label for="" class="control-label">Questions From</label>
             </div>
             <div class="form-group col-md-8">
-                <input data-message="Please Select Value" data-bind="value:Subjects" name="Questions From" class="form-control" id="eddlQuesFrom">
+                <input data-message="Please Select Value" data-bind="value:SubjectIds" name="Questions From" class="form-control" id="eddlQuesFrom">
                 <span class="k-invalid-msg" id="quesinvalidmsg" data-for="eddlQuesFrom"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="" class="control-label">Total Questions</label>
+            </div>
+            <div class="form-group col-md-8">
+                <input type="text" id="etxtNoOfQues" class="form-control" data-bind="value:TotalQuestions" name="Total Questions" required>
+                <span class="k-invalid-msg" data-for="etxtNoOfQues"></span>
             </div>
         </div>
         <div class="row">
@@ -180,12 +197,44 @@
                 <span class="k-invalid-msg" data-for="etxtPassingScore"></span>
             </div>
         </div>
-
     </div>
 </script>
 <script type="text/javascript">
+    var questionlimit = 0;
+    function GetQuestionCount(select) {
+        var questionvalue = $(select).data("kendoMultiSelect").value().join(", ");
+        var url = '@Url.Action("GetQuestionsFromSubject", "Home")';
+        url = url + "?questionvalue=" + questionvalue;
+        $.ajax(
+                 {
+                     url: url,
+                     type: 'GET',
+                     contentType: 'application/json; charset=utf-8',
+                     //dataType:"text",
+                     success: function (data) {
+                         //alert("data");
+                         //alert(data);
+                         $("#loader").hide();
+                         questionlimit = data;
+                         //alert(data);
+                     }
+                 });
+
+    }
+    function checkSelected(select) {
+
+        if ($(select).val() != "") {
+            var multiselect = $("#ddlQuesFrom").data("kendoMultiSelect");
+            multiselect.enable(true);
+        }
+        else {
+            var multiselect = $("#ddlQuesFrom").data("kendoMultiSelect");
+            multiselect.enable(false);
+        }
+    }
 
     $(document).ready(function () {
+
         var catid = 1;
         $("#aExpireDate").kendoDatePicker({
             format: "yyyy-MM-dd",
@@ -198,7 +247,7 @@
             dataTextField: "TestCatName",
             dataValueField: "TestCatID",
             searchable: false,
-            change:onchange,
+            change: onchange,
             dataSource: {
                 serverFiltering: false,
                 transport: {
@@ -217,6 +266,34 @@
                 },
             }
         }).data("kendoDropDownList");
+
+
+        $("#ddlTeacher").kendoDropDownList({
+            optionLabel: "Select Controller",
+            filter: "startswith",
+            dataTextField: "UserName",
+            dataValueField: "UserId",
+            searchable: false,
+            change: onchange,
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: {
+                        url: '@Url.Action("ListControllers", "Home")',
+                        dataType: "json",
+                    },
+                    schema: {
+                        model: {
+                            fields: {
+                                CategoryID: { type: "string" },
+                                CategoryName: { type: "string" }
+                            },
+                        },
+                    },
+                },
+            }
+        }).data("kendoDropDownList");
+
 
         debugger;
         var multiselectds = new kendo.data.DataSource({
@@ -244,9 +321,13 @@
             dataValueField: "SubjectId",
             dataSource: multiselectds,
         }).data("kendoMultiSelect");
-
+        var multiselect = $("#ddlQuesFrom").data("kendoMultiSelect");
+        multiselect.enable(false);
         function onchange() {
             catid = $('#ddlTestCategories').val();
+            if (catid == "") {
+                catid = 0;
+            }
             var multiselectds2 = new kendo.data.DataSource({
                 transport: {
                     data: JSON.stringify(catid),
@@ -263,13 +344,14 @@
                             },
                         },
                     }
-                }});
+                }
+            });
 
 
             //var multiselect = $("#ddlQuesFrom").data("kendoMultiSelect");
 
             //multiselect.refresh();
-           // $("#ddlQuesFrom").kendoMultiSelect();
+            // $("#ddlQuesFrom").kendoMultiSelect();
             var multiselect = $("#ddlQuesFrom").data("kendoMultiSelect");
             //multiselect.destroy();
             //$("#ddlQuesFrom").kendoMultiSelect({
@@ -278,7 +360,7 @@
             //    dataValueField: "SubjectId",
             //    dataSource: multiselectds,
             //}).data("kendoMultiSelect");
-          //  setDataSource(new kendo.data.DataSource({ data: data }));
+            //  setDataSource(new kendo.data.DataSource({ data: data }));
             multiselect.setDataSource(new kendo.data.DataSource({
                 transport: {
                     data: JSON.stringify(catid),
@@ -303,61 +385,71 @@
 
         $("#SaveQuiz").click(function () {
             var validator = $("#addQuiz").kendoValidator().data("kendoValidator");
-            if (validator.validate()) {
-                debugger;
-                var QuizName = $('#txtQuizName').val();
-                var TotalQuestions = $('#txtNoOfQues').val();
-                var CatID = $('#ddlTestCategories').val();
-                var TimeAllocated = $('#txtTimeAllot').val();
-                var PassingScore = $('#txtPassingScore').val();
-                var Subjects = $('#ddlQuesFrom').data("kendoMultiSelect").value();
-                Subjects = Subjects.toString();
+            var numofques = $('#txtNoOfQues').val();
+            if (numofques > questionlimit) {
+                new PNotify({
+                    title: 'Error!',
+                    text: 'Total questions cannot be greater than ' + questionlimit,
+                    type: 'error'
+                });
+            }
+            else {
+                if (validator.validate()) {
+                    debugger;
+                    var QuizName = $('#txtQuizName').val();
+                    var TotalQuestions = $('#txtNoOfQues').val();
+                    var CatID = $('#ddlTestCategories').val();
+                    var TimeAllocated = $('#txtTimeAllot').val();
+                    var PassingScore = $('#txtPassingScore').val();
+                    var Subjects = $('#ddlQuesFrom').data("kendoMultiSelect").value();
+                    Subjects = Subjects.toString();
 
-                var model = {
+                    var model = {
 
-                    "QuizName": QuizName,
-                    "TotalQuestions": TotalQuestions,
-                    "CatID": CatID,
-                    "TimeAllocated": TimeAllocated,
-                    "PassingScore": PassingScore,
-                    "Subjects": Subjects
-                };
+                        "QuizName": QuizName,
+                        "TotalQuestions": TotalQuestions,
+                        "CatID": CatID,
+                        "TimeAllocated": TimeAllocated,
+                        "PassingScore": PassingScore,
+                        "Subjects": Subjects
+                    };
 
-                $.ajax(
-                 {
-                     url: '@Url.Action("AddQuiz", "Home")',
-                     data: JSON.stringify(model),
-                     type: 'POST',
-                     contentType: 'application/json; charset=utf-8',
-                     //dataType:"text",
-                     success: function (data) {
-                         //alert("data");
-                         //alert(data);
-                         $("#loader").hide();
-                         if (data == 1 || data == -1) {
-                             $('#addQuiz').modal('hide');
-                             new PNotify({
-                                 title: 'Success!',
-                                 text: 'Record has been Inserted.',
-                                 type: 'success'
-                             });
-                             //ClearData();
-                             $("#quizGrid").data("kendoGrid").dataSource.read();
-                         }
-                         else {
-                             $('#addQuiz').modal('hide');
-                             new PNotify({
-                                 title: 'Error!',
-                                 text: 'Record Insertion Failed.',
-                                 type: 'error'
-                             });
+                    $.ajax(
+                     {
+                         url: '@Url.Action("AddQuiz", "Home")',
+                         data: JSON.stringify(model),
+                         type: 'POST',
+                         contentType: 'application/json; charset=utf-8',
+                         //dataType:"text",
+                         success: function (data) {
+                             //alert("data");
+                             //alert(data);
+                             $("#loader").hide();
+                             if (data == 1 || data == -1) {
+                                 $('#addQuiz').modal('hide');
+                                 new PNotify({
+                                     title: 'Success!',
+                                     text: 'Record has been Inserted.',
+                                     type: 'success'
+                                 });
+                                 //ClearData();
+                                 $("#quizGrid").data("kendoGrid").dataSource.read();
+                             }
+                             else {
+                                 $('#addQuiz').modal('hide');
+                                 new PNotify({
+                                     title: 'Error!',
+                                     text: 'Record Insertion Failed.',
+                                     type: 'error'
+                                 });
+                             }
+
                          }
 
                      }
+          );
 
-                 }
-      );
-
+                }
             }
         });
 
@@ -367,7 +459,14 @@
                 debugger;
                 var QuizId = $('#txtquizId').val();
                 var ExpireDate = $('#aExpireDate').val();
-                var TeacherId = $('#txtTeacherId').val();
+                var TeacherId = "";
+                if ('@profileData.User_Role' == 1) {
+                    TeacherId = $('#ddlTeacher').val();
+                }
+                if ('@profileData.User_Role' == 2) {
+                    TeacherId = $('#txtTeacherId').val();
+                }
+                    
                 var Agents = $('#ddlAgents').data("kendoMultiSelect").value();
                 Agents = Agents.toString();
 
@@ -575,6 +674,12 @@
 
               },
               {
+                  field: "TestCatID",
+                  title: "TestCatID",
+                  hidden: true,
+
+              },
+              {
                   field: "Subjects",
                   title: "Subjects",
                   width: 50
@@ -582,25 +687,27 @@
               },
               {
                   field: "SubjectIds",
-                 hidden:true,
+                  hidden: true,
 
               },
               {
                   command: [
-                      { name: "Assign", text: "Assign", click: function (e) {
-                          e.preventDefault();
-                          $('#assignQuiz').modal('show');
-                          debugger;
-                          var tr = $(e.target).closest("tr"); //get the row for deletion
-                          var data = this.dataItem(tr); //get the row data so it can be referred later
+                      {
+                          name: "Assign", text: "Assign", click: function (e) {
+                              e.preventDefault();
+                              $('#assignQuiz').modal('show');
+                              debugger;
+                              var tr = $(e.target).closest("tr"); //get the row for deletion
+                              var data = this.dataItem(tr); //get the row data so it can be referred later
 
-                          //$("#loader").show();
+                              //$("#loader").show();
 
-                          $('#txtquizId').val(data.QuizId);
-                          var Assignmodel = {
-                              "QuizId": data.QuizId
+                              $('#txtquizId').val(data.QuizId);
+                              var Assignmodel = {
+                                  "QuizId": data.QuizId
+                              }
                           }
-                      }},
+                      },
                 { name: "edit", text: "Edit", template: "<a class='k-button k-grid-edit btn' href=''><i class='material-icons md-18'>mode_edit</i></a>" },
                 {
                     name: "Delete", text: "Delete", template: "<a class='k-button k-grid-Delete btn' href=''><i class='material-icons md-18'>delete</i></a>", click: function (e) {
@@ -640,8 +747,8 @@
                         });
                     }
                 }
-                ], title: "Action", width: "118px"
-            }],
+                  ], title: "Action", width: "118px"
+              }],
 
             editable: {
                 mode: "popup",
@@ -656,104 +763,114 @@
                 console.log(e);
             },
             edit: function (e) {
-                $('#eddlQuesFrom').val('');
-                $("#eddlTestCategories").val('');
-            $("#eddlTestCategories").kendoDropDownList({
-            optionLabel: "Select Test Category",
-            filter: "startswith",
-            dataTextField: "TestCatName",
-            dataValueField: "TestCatID",
-            searchable: false,
-            change: oneditchange,
-            dataSource: {
-                serverFiltering: false,
-                transport: {
-                    read: {
-                        url: '@Url.Action("GetTestCategories", "Home")',
-                        dataType: "json",
-                    },
-                    schema: {
-                        model: {
-                            fields: {
-                                CategoryID: { type: "string" },
-                                CategoryName: { type: "string" }
+                //$('#eddlQuesFrom').val('');
+                //$("#eddlTestCategories").val('');
+                $("#eddlTestCategories").kendoDropDownList({
+                    optionLabel: "Select Test Category",
+                    filter: "startswith",
+                    dataTextField: "TestCatName",
+                    dataValueField: "TestCatID",
+                    searchable: false,
+                    change: oneditchange,
+                    dataSource: {
+                        serverFiltering: false,
+                        transport: {
+                            read: {
+                                url: '@Url.Action("GetTestCategories", "Home")',
+                                dataType: "json",
+                            },
+                            schema: {
+                                model: {
+                                    fields: {
+                                        CategoryID: { type: "string" },
+                                        CategoryName: { type: "string" }
+                                    },
+                                },
                             },
                         },
-                    },
-                },
-            }
-        }).data("kendoDropDownList");
+                    }
+                }).data("kendoDropDownList");
+
                 var catid = $("#eddlTestCategories").val();
-        debugger;
-        var multiselectds = new kendo.data.DataSource({
-            transport: {
-                data: JSON.stringify(catid),
-                read: {
-                    url: '@Url.Action("GetSubjects", "Home")',
-                    data: { catid: catid },
-                    dataType: "json",
-                },
-                schema: {
-                    model: {
-                        fields: {
-                            CategoryID: { type: "string" },
-                            CategoryName: { type: "string" }
-                        },
-                    },
+                if (catid == "") {
+                    catid = 0;
                 }
-            }
-
-        });
-        $("#eddlQuesFrom").kendoMultiSelect({
-            autoBind: false,
-            dataTextField: "SubjectName",
-            dataValueField: "SubjectId",
-            dataSource: multiselectds,
-        }).data("kendoMultiSelect");
-
-        function oneditchange() {
-            catid = $('#eddlTestCategories').val();
-            var multiselectds2 = new kendo.data.DataSource({
-                transport: {
-                    data: JSON.stringify(catid),
-                    read: {
-                        url: '@Url.Action("GetSubjects", "Home")',
-                        data: { catid: catid },
-                        dataType: "json",
-                    },
-                    schema: {
-                        model: {
-                            fields: {
-                                CategoryID: { type: "string" },
-                                CategoryName: { type: "string" }
-                            },
+                debugger;
+                var multiselectds = new kendo.data.DataSource({
+                    transport: {
+                        data: JSON.stringify(catid),
+                        read: {
+                            url: '@Url.Action("GetSubjects", "Home")',
+                            data: { catid: catid },
+                            dataType: "json",
                         },
-                    }
-                }});
-
-            var multiselect = $("#eddlQuesFrom").data("kendoMultiSelect");
-
-            multiselect.setDataSource(new kendo.data.DataSource({
-                transport: {
-                    data: JSON.stringify(catid),
-                    read: {
-                        url: '@Url.Action("GetSubjects", "Home")',
-                        data: { catid: catid },
-                        dataType: "json",
-                    },
-                    schema: {
-                        model: {
-                            fields: {
-                                CategoryID: { type: "string" },
-                                CategoryName: { type: "string" }
+                        schema: {
+                            model: {
+                                fields: {
+                                    CategoryID: { type: "string" },
+                                    CategoryName: { type: "string" }
+                                },
                             },
-                        },
+                        }
                     }
+
+                });
+                $("#eddlQuesFrom").kendoMultiSelect({
+                    autoBind: false,
+                    dataTextField: "SubjectName",
+                    dataValueField: "SubjectId",
+                    dataSource: multiselectds,
+                }).data("kendoMultiSelect");
+                var dropdownlist = $("#eddlTestCategories").data("kendoDropDownList");
+                dropdownlist.trigger("change");
+                var model = e.model;
+                var array = model.SubjectIds.split(",");
+                $('#eddlQuesFrom').data("kendoMultiSelect").value(array);
+                function oneditchange() {
+                    catid = $('#eddlTestCategories').val();
+                    $('#eddlQuesFrom').data("kendoMultiSelect").value('');
+                    var multiselectds2 = new kendo.data.DataSource({
+                        transport: {
+                            data: JSON.stringify(catid),
+                            read: {
+                                url: '@Url.Action("GetSubjects", "Home")',
+                                data: { catid: catid },
+                                dataType: "json",
+                            },
+                            schema: {
+                                model: {
+                                    fields: {
+                                        CategoryID: { type: "string" },
+                                        CategoryName: { type: "string" }
+                                    },
+                                },
+                            }
+                        }
+                    });
+
+                    var multiselect = $("#eddlQuesFrom").data("kendoMultiSelect");
+
+                    multiselect.setDataSource(new kendo.data.DataSource({
+                        transport: {
+                            data: JSON.stringify(catid),
+                            read: {
+                                url: '@Url.Action("GetSubjects", "Home")',
+                                data: { catid: catid },
+                                dataType: "json",
+                            },
+                            schema: {
+                                model: {
+                                    fields: {
+                                        CategoryID: { type: "string" },
+                                        CategoryName: { type: "string" }
+                                    },
+                                },
+                            }
+                        }
+                    }));
+                    multiselect.dataSource.filter({});
+
                 }
-            }));
-            multiselect.dataSource.filter({});
-
-        }
                 //var value = e.model.SubjectIds;
                 //value = value.split(",");
 

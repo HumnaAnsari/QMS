@@ -329,6 +329,27 @@ namespace ExpenseTrackerApp.Controllers
 
         }
 
+        public ActionResult ListControllers()
+        {
+            try
+            {
+                List<getControllers_Result> data = new List<getControllers_Result>();
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    data = db.getControllers().ToList();
+                }
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                // logger.Error(ex);
+            }
+
+            return null;
+
+        }
+
         public ActionResult GetTestCategories()
         {
             try
@@ -510,6 +531,25 @@ namespace ExpenseTrackerApp.Controllers
                 }
 
                 return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                // logger.Error(ex);
+            }
+
+            return null;
+
+        }
+        public ActionResult GetQuestionsFromSubject(string questionvalue)
+        {
+            try
+            {
+                using (DBONLINETESTEntities db = new DBONLINETESTEntities())
+                {
+                    int? j = db.GetQuestionsFromSubject(questionvalue).First();
+                    return Json(j, JsonRequestBehavior.AllowGet);
+                }
+
             }
             catch (Exception ex)
             {

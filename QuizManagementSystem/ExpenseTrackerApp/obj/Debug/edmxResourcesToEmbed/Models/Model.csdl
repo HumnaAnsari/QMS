@@ -204,6 +204,16 @@
     <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
+  <EntityType Name="T1">
+    <Key>
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="PermissionId" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FormName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
   <Association Name="FK__tblQuiz__CatID__503BEA1C">
     <End Role="tblTestCategories" Type="Self.tblTestCategory" Multiplicity="1" />
     <End Role="tblQuiz" Type="Self.tblQuiz" Multiplicity="*" />
@@ -236,6 +246,7 @@
     <EntitySet Name="tblSecretQuestions" EntityType="Self.tblSecretQuestion" />
     <EntitySet Name="tblUserAnswers_Latest" EntityType="Self.tblUserAnswers_Latest" />
     <EntitySet Name="tblUserRoles" EntityType="Self.tblUserRole" />
+    <EntitySet Name="T1" EntityType="Self.T1" />
     <AssociationSet Name="FK__tblQuiz__CatID__503BEA1C" Association="Self.FK__tblQuiz__CatID__503BEA1C">
       <End Role="tblTestCategories" EntitySet="tblTestCategories" />
       <End Role="tblQuiz" EntitySet="tblQuizs" />
@@ -372,6 +383,9 @@
       <Parameter Name="AssignID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="getQuestionList" ReturnType="Collection(DBONLINETESTModel.getQuestionList_Result)" />
+    <FunctionImport Name="GetQuestionsFromSubject" ReturnType="Collection(Int32)">
+      <Parameter Name="questionvalue" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="GetQuizData_Agent" ReturnType="Collection(DBONLINETESTModel.GetQuizData_Agent_Result)">
       <Parameter Name="UserId" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -420,6 +434,7 @@
       <Parameter Name="roleid" Mode="In" Type="Int32" />
       <Parameter Name="userid" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="getControllers" ReturnType="Collection(DBONLINETESTModel.getControllers_Result)" />
   </EntityContainer>
   <ComplexType Name="getAgentGridData_Result">
     <Property Type="Int32" Name="QuizID" Nullable="false" />
@@ -488,6 +503,7 @@
     <Property Type="Int32" Name="TimeAllocated" Nullable="false" />
     <Property Type="Int32" Name="PassingScore" Nullable="false" />
     <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="TestCatID" Nullable="false" />
     <Property Type="String" Name="TestCatName" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Subjects" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="SubjectIds" Nullable="true" MaxLength="50" />
@@ -582,5 +598,9 @@
     <Property Type="String" Name="ControllerName" Nullable="true" MaxLength="50" />
     <Property Type="Decimal" Name="Marks" Nullable="true" Precision="5" Scale="2" />
     <Property Type="String" Name="TestCompleteDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="getControllers_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
   </ComplexType>
 </Schema>

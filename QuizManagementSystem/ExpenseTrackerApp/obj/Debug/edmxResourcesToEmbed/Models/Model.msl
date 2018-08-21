@@ -217,6 +217,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="T1">
+      <EntityTypeMapping TypeName="DBONLINETESTModel.T1">
+        <MappingFragment StoreEntitySet="T1">
+          <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="addQuestion" FunctionName="DBONLINETESTModel.Store.addQuestion" />
     <FunctionImportMapping FunctionImportName="addQuiz" FunctionName="DBONLINETESTModel.Store.addQuiz" />
     <FunctionImportMapping FunctionImportName="addSignUpUser" FunctionName="DBONLINETESTModel.Store.addSignUpUser" />
@@ -305,6 +315,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetQuestionsFromSubject" FunctionName="DBONLINETESTModel.Store.GetQuestionsFromSubject" />
     <FunctionImportMapping FunctionImportName="GetQuizData_Agent" FunctionName="DBONLINETESTModel.Store.GetQuizData_Agent">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DBONLINETESTModel.GetQuizData_Agent_Result">
@@ -332,6 +343,7 @@
           <ScalarProperty Name="TimeAllocated" ColumnName="TimeAllocated" />
           <ScalarProperty Name="PassingScore" ColumnName="PassingScore" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="TestCatID" ColumnName="TestCatID" />
           <ScalarProperty Name="TestCatName" ColumnName="TestCatName" />
           <ScalarProperty Name="Subjects" ColumnName="Subjects" />
           <ScalarProperty Name="SubjectIds" ColumnName="SubjectIds" />
@@ -473,6 +485,14 @@
           <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
           <ScalarProperty Name="Marks" ColumnName="Marks" />
           <ScalarProperty Name="TestCompleteDate" ColumnName="TestCompleteDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getControllers" FunctionName="DBONLINETESTModel.Store.getControllers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBONLINETESTModel.getControllers_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -36,7 +36,7 @@
             @if (item.ChoiceType == "Single")
             {
                 <div class="panel-heading">
-                    Multiple Choice Questions
+                    Multiple Choice Questions - Question 1 of @Model.Count()
                 </div>
 
                 <div class="panel-body">
@@ -56,7 +56,7 @@
             @if (item.ChoiceType == "Multiple")
             {
                 <div class="panel-heading">
-                    Multiple Answer Questions
+                    Multiple Answer Questions - Question 1 of @Model.Count()
                 </div>
 
                 <div class="panel-body">
@@ -76,7 +76,7 @@
             @if (item.ChoiceType == "True/False")
             {
                 <div class="panel-heading">
-                    True False Questions
+                    True False Questions - Question 1 of @Model.Count()
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -97,13 +97,15 @@
             </div>
         </div>
     }
+    @{ int a = 2;}
     @foreach (var item in Model.Skip(1))
     {
+       
         <div class="panel panel-default salesPanel" id="@item.QuestionID" style="display:none;">
             @if (item.ChoiceType == "Single")
             {
                 <div class="panel-heading">
-                    Multiple Choice Questions
+                    Multiple Choice Questions - Question @a of @Model.Count()
                 </div>
 
                 <div class="panel-body">
@@ -123,7 +125,7 @@
             @if (item.ChoiceType == "Multiple")
             {
                 <div class="panel-heading">
-                    Multiple Answer Questions
+                    Multiple Answer Questions - Question @a of @Model.Count()
                 </div>
 
                 <div class="panel-body">
@@ -143,7 +145,7 @@
             @if (item.ChoiceType == "True/False")
             {
                 <div class="panel-heading">
-                    True False Questions
+                    True False Questions - Question @a of @Model.Count()
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -163,6 +165,7 @@
                 <button type="submit" style="display : none;" class="btn btn-default" onclick="Clear();">Clear</button>
             </div>
         </div>
+        a = a + 1;
     }
 </div>
 <script>
