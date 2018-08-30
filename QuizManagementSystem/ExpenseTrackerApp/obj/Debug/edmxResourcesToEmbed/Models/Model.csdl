@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DBONLINETESTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="Split1_Result">
+    <Property Name="Value" Type="Int64" />
+  </ComplexType>
   <EntityType Name="Employee">
     <Key>
       <PropertyRef Name="EmployeeID" />
@@ -251,6 +254,9 @@
       <End Role="tblTestCategories" EntitySet="tblTestCategories" />
       <End Role="tblQuiz" EntitySet="tblQuizs" />
     </AssociationSet>
+    <FunctionImport Name="Split1" IsComposable="true" ReturnType="Collection(DBONLINETESTModel.Split1_Result)">
+      <Parameter Name="input" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="addQuestion">
       <Parameter Name="QuestionType" Mode="In" Type="String" />
       <Parameter Name="Category" Mode="In" Type="String" />
@@ -377,6 +383,7 @@
       <Parameter Name="uid" Mode="In" Type="Int32" />
       <Parameter Name="qid" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="getControllers" ReturnType="Collection(DBONLINETESTModel.getControllers_Result)" />
     <FunctionImport Name="GetGraph" ReturnType="Collection(DBONLINETESTModel.GetGraph_Result)">
       <Parameter Name="UserID" Mode="In" Type="Int32" />
       <Parameter Name="QuizID" Mode="In" Type="Int32" />
@@ -434,7 +441,6 @@
       <Parameter Name="roleid" Mode="In" Type="Int32" />
       <Parameter Name="userid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="getControllers" ReturnType="Collection(DBONLINETESTModel.getControllers_Result)" />
   </EntityContainer>
   <ComplexType Name="getAgentGridData_Result">
     <Property Type="Int32" Name="QuizID" Nullable="false" />
@@ -465,6 +471,10 @@
     <Property Type="String" Name="Answer" Nullable="true" MaxLength="250" />
     <Property Type="String" Name="CorrectAnswer" Nullable="true" MaxLength="15" />
     <Property Type="Int32" Name="isCorrect" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getControllers_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="GetGraph_Result">
     <Property Type="String" Name="SubjectName" Nullable="false" MaxLength="50" />
@@ -507,6 +517,7 @@
     <Property Type="String" Name="TestCatName" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Subjects" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="SubjectIds" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="QuestionCount" Nullable="true" />
   </ComplexType>
   <ComplexType Name="GetQuizQuestions_Result">
     <Property Type="Int32" Name="QuizID" Nullable="false" />
@@ -598,9 +609,5 @@
     <Property Type="String" Name="ControllerName" Nullable="true" MaxLength="50" />
     <Property Type="Decimal" Name="Marks" Nullable="true" Precision="5" Scale="2" />
     <Property Type="String" Name="TestCompleteDate" Nullable="true" MaxLength="10" />
-  </ComplexType>
-  <ComplexType Name="getControllers_Result">
-    <Property Type="Int32" Name="UserId" Nullable="false" />
-    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
   </ComplexType>
 </Schema>

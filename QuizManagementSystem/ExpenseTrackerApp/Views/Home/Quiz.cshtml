@@ -100,7 +100,7 @@
     @{ int a = 2;}
     @foreach (var item in Model.Skip(1))
     {
-       
+
         <div class="panel panel-default salesPanel" id="@item.QuestionID" style="display:none;">
             @if (item.ChoiceType == "Single")
             {
@@ -204,6 +204,7 @@
     }
     function Submit(id)
     {
+        debugger;
         var quizid = '@Model.FirstOrDefault().QuizID';
         var AssignID = '@ViewBag.AssignID';
         if($('#' +id.toString()).find('input').is(":checked"))
@@ -211,7 +212,9 @@
             var result_obj= [];
 
             $('#FSecureSalesForm').find('.salesPanel').each(function( index ) {
-                if($(this).find('.panel-heading').text().trim()=='Multiple Choice Questions' || $(this).find('.panel-heading').text().trim()=='True False Questions')
+                var heading=$(this).find('.panel-heading').text().trim();
+                heading = heading.substr(0, heading.indexOf('-')).trim();
+                if(heading=='Multiple Choice Questions' || heading=='True False Questions')
                 {
                     var correctanswer =  $(this).find('.answer').val();
                     var questionid =  $(this).find('.questionid').val();
@@ -226,7 +229,7 @@
                     result_obj.push({AssignID : AssignID, questionid : questionid, questionnumber : questionnumber , answer : answer , isCorrect: isCorrect, quizid : quizid});
 
                 }
-                if($(this).find('.panel-heading').text().trim()=='Multiple Answer Questions')
+                if(heading=='Multiple Answer Questions')
                 {
                     var selected = [];
                     $(this).find('input:checked').each(function() {

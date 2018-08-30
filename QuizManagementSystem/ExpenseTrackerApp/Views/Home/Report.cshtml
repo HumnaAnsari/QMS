@@ -33,7 +33,26 @@
     $("#gridReport").kendoGrid({
 
         dataSource: dataSource,
+        dataBound: function () {
+            var grid = $("#gridReport").data("kendoGrid");
 
+            var grid = $("#gridReport").data("kendoGrid");
+            for (var i = 0; i < grid.columns.length; i++) {
+                grid.autoFitColumn(i);
+            }
+
+            $("#gridReport tbody tr .k-command-cell .k-grid-ViewFullReport").each(function () {
+                var currentDataItem = $("#gridReport").data("kendoGrid").dataItem($(this).closest("tr"));
+                debugger;
+                //Check in the current dataItem if the row is editable
+                if (currentDataItem.Status == 'Pending') {
+                    $(this).remove();
+                }
+
+
+            })
+
+        },
         scrollable: true,
         sortable: true,
         pageable: true,

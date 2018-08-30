@@ -416,6 +416,9 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
   <Function Name="getQuizSubjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
     <Parameter Name="QuizId" Type="int" Mode="In" />
   </Function>
+  <Function Name="getQuizSubjectsQuestionCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="subjectidSP" Type="varchar(max)" Mode="In" />
+  </Function>
   <Function Name="GetResults" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserID" Type="int" Mode="In" />
     <Parameter Name="QuizID" Type="int" Mode="In" />
@@ -443,6 +446,16 @@ warning 6035: The relationship 'FK_tblResult_tblUserDetails_UserName' has column
     <Parameter Name="isCorrect" Type="int" Mode="In" />
     <Parameter Name="questionid" Type="int" Mode="In" />
     <Parameter Name="AssignID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Split1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="input" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Value" Type="bigint" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
   </Function>
   <Function Name="UpdateMarks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="QuizID" Type="int" Mode="In" />

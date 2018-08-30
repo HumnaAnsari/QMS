@@ -23,5 +23,6 @@ namespace ExpenseTrackerApp.Models
         public string TestCatName { get; set; }
         public string Subjects { get; set; }
         public string SubjectIds { get; set; }
+        public Nullable<int> QuestionCount { get; set; }
     }
 }
